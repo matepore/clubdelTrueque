@@ -27,7 +27,7 @@
 		    	<li>
 		    		<!--<a href="perfil.php" id="navLetra">Nahuel Cabrera <img src="img/usuario/usuario2.jpg" style="width:30px"></a>-->
 		    		<?php
-		    			echo "<a href='#' id='navLetra'>".$nombre." ".$apellido."<img src='".$avatar."' style='width:30px'></a>";
+		    			echo "<a href='#' id='navLetra'>".$_SESSION["nombre"]." ".$_SESSION["apellido"]." "."<img src='".$_SESSION["avatar"]."' style='width:30px'></a>";
 		    		?>
 		    	</li>
 			    <li class="dropdown">

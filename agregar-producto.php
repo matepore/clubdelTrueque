@@ -50,16 +50,11 @@
 					<div class="form-group">
 						<label>Categoría:</label>
 						<select class="form-control" id="sel1">
-							<option>Cocina</option>
-							<option>Baño</option>
-							<option>Informática</option>
-							<option>Hogar y Electrodomésticos</option>
-							<option>Ropa</option>
-							<option>Vehículos</option>
-							<option>Muebles</option>
-							<option>Herramientas</option>
-							<option>Juguetes</option>
-							<option>Misceláneo</option>
+							<?php
+				        		foreach ($con->query($categoria) as $row) {
+				        			echo "<option>".utf8_encode($row['nombre'])."</option>";
+				        		}
+				        	?>
 						</select>
 					</div>
 
