@@ -1,0 +1,158 @@
+#boton-navbar {
+	background-color: #FD8500;
+	border-color: #222222;
+	border: none;
+}
+
+#boton-navbar:hover {
+	background-color: #FFA33E;
+	border-color: #222222;
+}
+
+.nav {
+	font-family: Verdana;
+}
+
+.navbar-brand {
+	font-family: Times;
+}
+
+#navLetra {
+	color: #FD8500;
+}
+
+#navLetra:hover {
+	color: #FFA33E;
+}
+
+#margenAbajo {
+	margin-bottom: 25px;
+}
+
+#margenSuperiorBoton {
+	margin-top: 25px;
+	background-color: #FD8500;
+	border-color: #222222;
+	border: none;
+}
+
+#margenSuperiorBoton:hover {
+	background-color: #FFA33E;
+	border-color: #222222;
+}
+
+#colorKBD {
+	background-color: #FFB900;
+	color: black;
+}
+
+#colorKBD:hover {
+	background-color: #FFE000;
+}
+
+#alertBA {
+	background-color: #F5F5F5;
+	color: black;
+}
+
+#pildora {
+	background-color: #FD8500;
+	border-color: #222222;
+	border: none;
+}
+
+#pildora:hover {
+	background-color: #FFA33E;
+	border-color: #222222;
+}
+
+#espera {
+	color: blue;
+}
+
+#aceptado {
+	color: green;
+}
+
+#rechazado {
+	color: red;
+}
+
+#btn {
+	border: solid 1px;
+	background-color:#FFA33E;
+	color:white;
+	width: 100%;
+	height: 40px;
+}
+
+#btn:hover {
+	background-color:rgb(243, 189, 131);
+}
+
+#ccuenta {
+	color: black;
+}
+
+#btn-registracion {
+	border: solid 1px;
+	background-color: rgba(34, 32, 32, 0.884);
+	color: white;
+	width: 100%;
+	height: 45px;
+	border-radius: 12px 12px 12px 12px;
+	-moz-border-radius: 12px 12px 12px 12px;
+	-webkit-border-radius: 12px 12px 12px 12px;
+	border: 0px solid #000000;
+}
+
+#btn-registracion:hover {
+	background-color:rgba(88, 83, 83, 0.884);
+}
+
+#comentarios {
+	font-family: verdana;
+	color: #462500;
+}
+
+#intereses {
+	font-family: serif;
+	color: #3B3B3B;
+}
+
+#index-productos {
+	background-color: #FD8500;
+}
+
+#titulo-perfil {
+	color: #FD8500;
+}
+
+#info-perfil {
+	background-color: #F5F5F5;
+}
+
+#producto-buscar {
+	background-color: #FFF3DC;
+}
+
+#boton-alternativo {
+	color: #FD8500;
+	background-color: black;
+}
+
+#boton-alternativo:hover {
+	color: #FFA847;
+	background-color: #363636;
+}
+
+.nav-tabs > li, .nav-pills > li {
+	float:none;
+	display:inline-block;
+	*display:inline;
+	 zoom:1;
+}
+
+.nav-tabs, .nav-pills {
+    text-align:center;
+}
