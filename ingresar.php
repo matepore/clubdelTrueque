@@ -13,7 +13,8 @@
 			session_start();
 			foreach ($resultado as $row) {
 				$_SESSION["identificador"] = $row["id_usuario"];
-				//$_SESSION[]
+				$_SESSION["estado"] = "iniciado";
+				//$_SESSION[""]
 			}
 		}
 		else {
