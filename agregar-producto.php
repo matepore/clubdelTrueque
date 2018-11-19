@@ -13,7 +13,7 @@
 </head>
 <body>
 	<header>
-		<?php include "navbar-logueado.php"; ?>
+		<?php include "dibujar_navbar.php"; ?>
 	</header>
 
 	<div class="container">

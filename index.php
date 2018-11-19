@@ -22,15 +22,31 @@
 				<div>
 					<h1>Productos en</h1>
 					<h1 class="page-header">
-						<small>Ezeiza</small>
+						<?php
+							if (isset($_SESSION["identificador"])) {
+								echo "<small>".$_SESSION["localidad"]."</small>";
+							}
+							else {
+								echo "<small>Ezeiza</small>";
+							}
+						?>
 					</h1>
 				</div>
             </div>
 		</div>
 		<div class="row text-center">
 			<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="margenAbajo">
-				<label>Set de cuchillos</label>
-				<a href="#"><img src="img/cocina/set-cuchillos.jpg" class="img-responsive"></a>
+				<!--<label>Set de cuchillos</label>
+				<a href="#"><img src="img/cocina/set-cuchillos.jpg" class="img-responsive"></a>-->
+				<?php
+					require_once('conexion.php');
+					$producto = "SELECT nombre, imagen FROM producto WHERE id_producto = 2";
+
+					foreach($con->query($producto) as $row) {
+						echo "<label>".$row["nombre"];
+						echo "<a href='#'><img src='".$row["imagen"]."' class='img-responsive'></a>";
+					}
+				?>
 			</div>
 			<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="margenAbajo">
 				<label>Jabonera para ducha</label>

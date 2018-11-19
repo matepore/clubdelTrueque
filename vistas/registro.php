@@ -122,16 +122,23 @@
 				</div>
 				<div class="col-md-2 col-lg-2 col-xs-12 col-sm-12"></div>
 			</div>
-
+			
 			<div class="row">
+				<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"></div>
 				<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
 					<div class="form-group">
 						<label><b>Ingrese url de avatar:</b></label>
 						<div class="input-group">
+							<span class="input-group-addon"><i class="fas fa-camera"></i></span>
 							<input id="avatar" type="text" name="Avatar" class="form-control" placeholder="Ingrese url" required>
 						</div>
 					</div>
 				</div>
+				<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"></div>
+			</div>
+	
+			<div class="row">
+				<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"></div>
 				<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
 					<input id="btn-registracion" name="registrar" type="submit" value="Crear Cuenta">
 				</div>

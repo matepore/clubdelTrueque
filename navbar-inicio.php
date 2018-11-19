@@ -7,8 +7,8 @@
 				</div>
 			</ul>
 		    <ul class="nav navbar-nav navbar-right">
-		    	<li><a id="navLetra" href="registro.php"><span class="fas fa-user-plus fa-2x"></span> Registrarse</a></li>
-		    	<li><a id="navLetra" href="iniciar-sesion.php"><span class="fas fa-user-check fa-2x"></span> Iniciar Sesión</a></li>
+		    	<li><a id="navLetra" href="persistir_usuario.php"><span class="fas fa-user-plus fa-2x"></span> Registrarse</a></li>
+		    	<li><a id="navLetra" href="ingresar.php"><span class="fas fa-user-check fa-2x"></span> Iniciar Sesión</a></li>
 		    </ul>
 		</div>
 	</nav>
@@ -23,8 +23,8 @@
 						<span class="fas fa-bars fa-2x"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="registro.php">Registrarse</a></li>
-						<li><a href="iniciar-sesion.php">Iniciar Sesión</a></li>
+						<li><a href="persistir_usuario.php">Registrarse</a></li>
+						<li><a href="ingresar.php">Iniciar Sesión</a></li>
 					</ul>
 				</li>
 				<li class="col-sm-6 col-xs-6"></li>
