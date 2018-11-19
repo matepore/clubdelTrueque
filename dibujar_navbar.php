@@ -6,6 +6,8 @@
 
 	if(isset($_SESSION['identificador']) and $_SESSION["estado"] == "iniciado") {
 		include "navbar.php";
-		include "perfil.php";
+	}
+	else {
+		include "navbar-nologueado.php";
 	}
 ?>

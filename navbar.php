@@ -38,7 +38,7 @@
 						<li><a href="agregar-producto.php"><span class="fas fa-cart-plus"></span> Agregar Producto</a></li>
 						<li><a href="#"><span class="fas fa-list"></span> Historial de Trueques</a></li>
 						<li><a href="#"><span class="fas fa-list"></span> Historial de Propuestas</a></li>
-						<li><a href="index.php"><span class="fas fa-user-times"></span> Cerrar Sesión</a></li>
+						<li><a href="#" id="cerrarSesion"><span class="fas fa-user-times"></span> Cerrar Sesión</a></li>
 			        </ul>
 				</li>
 		    </ul>
@@ -60,7 +60,7 @@
 						<li><a href="agregar-producto.php"><span class="fas fa-cart-plus"></span> Agregar Producto</a></li>
 						<li><a href="#"><span class="fas fa-list"></span> Historial de Trueques</a></li>
 						<li><a href="#"><span class="fas fa-list"></span> Historial de Propuestas</a></li>
-						<li><a href="index.php"><span class="fas fa-user-times"></span> Cerrar Sesión</a></li>
+						<li><a href="#" id="cerrarSesion"><span class="fas fa-user-times"></span> Cerrar Sesión</a></li>
 					</ul>
 				</li>
 		    	<li class="col-sm-6 col-xs-6"></li>

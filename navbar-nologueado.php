@@ -8,16 +8,11 @@
 		    	<li class="dropdown">
 			        <a class="dropdown-toggle" data-toggle="dropdown" id="navLetra" href="#">Categorías<span class="caret"></span></a>
 			        <ul class="dropdown-menu">
-			        	<li><a href="buscar.php">Cocina</a></li>
-			        	<li><a href="#">Baño</a></li>
-			        	<li><a href="#">Informática</a></li>
-			        	<li><a href="#">Hogar y Electrodomésticos</a></li>
-			        	<li><a href="#">Ropa</a></li>
-			        	<li><a href="#">Vehículos</a></li>
-			        	<li><a href="#">Muebles</a></li>
-			        	<li><a href="#">Herramientas</a></li>
-			        	<li><a href="#">Juguetes</a></li>
-			        	<li><a href="#">Misceláneo</a></li>
+			        	<?php
+			        		foreach ($con->query($categoria) as $row) {
+			        			echo "<li><a href='#'>".utf8_encode($row['nombre'])."</a></li>";
+			        		}
+			        	?>
 			        </ul>
 			    </li>
 			    <form class="navbar-form navbar-left" action="/action_page.php">
@@ -28,8 +23,8 @@
 			    </form>
 			</ul>
 		    <ul class="nav navbar-nav navbar-right">
-		    	<li><a id="navLetra" href="registro.php"><span class="fas fa-user-plus fa-2x"></span> Registrarse</a></li>
-		    	<li><a id="navLetra" href="iniciar-sesion.php"><span class="fas fa-user-check fa-2x"></span> Iniciar Sesión</a></li>
+		    	<li><a id="navLetra" href="persistir_usuario.php"><span class="fas fa-user-plus fa-2x"></span> Registrarse</a></li>
+		    	<li><a id="navLetra" href="ingresar.php"><span class="fas fa-user-check fa-2x"></span> Iniciar Sesión</a></li>
 		    </ul>
 		</div>
 	</nav>
@@ -45,8 +40,8 @@
 					</a>
 					<ul class="dropdown-menu">
 						<li><a href="#"><span class="fas fa-search"></span> Buscar</a></li>
-						<li><a href="registro.php"><span class="fas fa-user-plus"></span> Registrarse</a></li>
-						<li><a href="iniciar-sesion.php"><span class="fas fa-user-check"></span> Iniciar Sesión</a></li>
+						<li><a href="persistir_usuario.php"><span class="fas fa-user-plus"></span> Registrarse</a></li>
+						<li><a href="ingresar.php"><span class="fas fa-user-check"></span> Iniciar Sesión</a></li>
 					</ul>
 				</li>
 		    	<li class="col-sm-6 col-xs-6"></li>

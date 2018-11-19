@@ -11,6 +11,7 @@
 		        if(!$con->exec($sql)){
 		        	die("No se ha insertado el registro");
 		        }
+		        header('Location: ingresar.php');
 		    }
 		    else {
 		    	echo "Ya hay una cuenta registrada con ese mail, por favor intente con otro.";

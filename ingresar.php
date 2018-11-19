@@ -23,6 +23,8 @@
 				$_SESSION["provincia"] = $row["provincia"];
 				$_SESSION["localidad"] = $row["localidad"];
 				$_SESSION["avatar"] = $row["avatar"];
+
+			header('Location: index.php');
 			}
 		}
 		else {

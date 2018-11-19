@@ -13,7 +13,7 @@
 </head>
 <body>
 	<header>
-		<?php include "navbar-nologueado.php"; ?>
+		<?php include "dibujar_navbar.php"; ?>
 	</header>
 	
 	<div class="container">
@@ -21,7 +21,9 @@
 			<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
 				<div>
 					<h1>Productos en</h1>
-					<h1 class="page-header"><small>Ezeiza</small></h1>
+					<h1 class="page-header">
+						<small>Ezeiza</small>
+					</h1>
 				</div>
             </div>
 		</div>
