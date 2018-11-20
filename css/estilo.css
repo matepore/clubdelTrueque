@@ -50,6 +50,15 @@
 	background-color: #FFE000;
 }
 
+#colorKBDA {
+	background-color: black;
+	color: #FFB900;
+}
+
+#colorKBDA:hover {
+	background-color: #424242;
+}
+
 #alertBA {
 	background-color: #F5F5F5;
 	color: black;

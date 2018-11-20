@@ -1,5 +1,7 @@
 <?php
-	session_start();
+	if(!isset($_SESSION)) { 
+        session_start(); 
+    }
     if (isset($_SESSION['identificador'])) {
     	if(isset($_POST["agregarProducto"])) {
     		try {
@@ -42,11 +44,11 @@
 	    			$id_categoria = 10;
 	    		}
 
-	    		$producto = "INSERT INTO producto (nombre, descripcion, intereses, imagen, id_estado_producto, id_categoria, id_usuario) VALUES ('".$_POST["nombre"]."','".$_POST["descripcion"]."','".$_POST["intereses"]."','".$_POST["imagen"]."','".$estado."','".$id_categoria."','".$_SESSION["identificador"]."')";
+	    		$producto = "INSERT INTO producto (nombre, descripcion, intereses, imagen, id_estado_producto, id_categoria, id_usuario) VALUES ('".utf8_encode($_POST["nombre"])."','".utf8_encode($_POST["descripcion"])."','".utf8_encode($_POST["intereses"])."','".$_POST["imagen"]."','".$estado."','".$id_categoria."','".$_SESSION["identificador"]."')";
 	    		if(!$con->exec($producto)){
 		        	die("No se ha insertado el registro");
 			    }
-			    header('Location: persistir_producto.php');
+			    header('Location: dibujar_cartera.php');
     		}
     		catch(PDOException $e) {
 		    	echo $producto . "<br>" . $e->getMessage();die();
