@@ -28,28 +28,33 @@
 		<div class="row">
 			<div class="col-md-3 col-lg-3"></div>
 			<div class="col-md-6 col-lg-6">
-				<form action="" method="post">
+				<form action="persistir_producto.php" method="post">
 					<div class="form-group">
 						<label>Nombre del producto:</label>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fas fa-tag"></i></span>
-							<input type="text" class="form-control" placeholder="Ingrese el nombre" pattern="" required>
+							<input type="text" name="nombre" class="form-control" placeholder="Ingrese el nombre" required>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label>Imagen del producto:</label><br>
+						<!--<label>Imagen del producto:</label><br>
 						<div class="hidden-xs hidden-sm">
 							<p class="text-center"><button type="button" class="btn btn-default" id="boton-alternativo"><span class="fas fa-camera"></span> <strong>Agregar foto</strong></button></p>
 						</div>
 						<div class="hidden-lg hidden-md">
 							<p class="text-center"><button type="button" class="btn btn-default btn-block" id="boton-alternativo"><span class="fas fa-camera fa-2x"></span> <strong>Agregar foto</strong></button></p>
+						</div>-->
+						<label>Ingrese la url de la imagen:</label>
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fas fa-camera"></i></span>
+							<input type="text" name="imagen" class="form-control" placeholder="Ingrese la url" required>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label>Categoría:</label>
-						<select class="form-control" id="sel1">
+						<select name="categoria" class="form-control" id="sel1">
 							<?php
 				        		foreach ($con->query($categoria) as $row) {
 				        			echo "<option>".utf8_encode($row['nombre'])."</option>";
@@ -60,17 +65,25 @@
 
 					<div class="form-group">
 						<label>Descripción del producto:</label>
-						<textarea class="form-control" rows="5" id="comment"></textarea>
+						<textarea name="descripcion" class="form-control" rows="5" id="comment"></textarea>
 					</div>
 
 					<div class="form-group">
 						<label>Tus intereses para un trueque:</label>
-						<textarea class="form-control" rows="5" id="comment"></textarea>
+						<textarea name="intereses" class="form-control" rows="5" id="comment"></textarea>
+					</div>
+					
+					<div class="form-group">
+						<label>Seleccione si es publico o privado:</label>
+						<select name="estado" class="form-control" id="sel2">
+							<option>Publico</option>
+							<option>Privado</option>
+						</select>
 					</div>
 
 					<div class="form-group">
 						<p>
-							<button type="submit" class="btn btn-default btn-block" id="boton-alternativo"><strong>Enviar</strong></button>
+							<input type="submit" name="agregarProducto" class="btn btn-default btn-block" id="boton-alternativo" value="Enviar">
 						</p>
 					</div>
 				</form>
