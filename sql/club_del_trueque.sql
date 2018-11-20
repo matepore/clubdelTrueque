@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-11-2018 a las 19:58:26
+-- Tiempo de generación: 20-11-2018 a las 21:43:09
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.1.23
 
@@ -193,7 +193,9 @@ CREATE TABLE `producto` (
 
 INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `intereses`, `imagen`, `id_estado_producto`, `id_categoria`, `id_usuario`) VALUES
 (2, 'Motorola Google Nexus 6 ', 'Nexus 6 Especificaciones\r\n\r\nSistema Operativo: Android 5, Lollipop®\r\n\r\nProcesador del sistema: Procesador Qualcomm® Snapdragon™ 805 con CPU quad-core de 2,7 GHz\r\n\r\nMemoria (RAM): 3 GB\r\n\r\nAlmacenamiento: 32 GB*', 'Acepto ropa elegante como camisas, corbata, saco, zapatos, etc.', 'https://chavixx.cl/wp-content/uploads/2017/12/Nexus_6_001sign.jpg35ff16d0-15f3-4793-8f59-aeb89128e281Original.jpg', 1, 3, 8),
-(6, 'Playstation 4', 'Es la Playstation 4 original con 1TB de disco y un joystick original.', 'Acepto una Xbox One X o una PC Gamer.', 'https://i.imgur.com/oMeBGSk.jpg', 1, 3, 8);
+(6, 'Playstation 4', 'Es la Playstation 4 original con 1TB de disco y un joystick original.', 'Acepto una Xbox One X o una PC Gamer.', 'https://i.imgur.com/oMeBGSk.jpg', 1, 3, 8),
+(7, 'Celular Alcatel OneTouch POP 2', 'Es un celular de calidad media baja totalmente funcional y solo fue usado una vez.', 'Intercambio por Auriculares, zapatillas o alguna cosa de cocina.', 'https://http2.mlstatic.com/alcatel-one-touch-pop-2-casi-nuevo-bien-cuidado-D_NQ_NP_977579-MLA28218992144_092018-F.jpg', 2, 3, 8),
+(9, 'La caja secreta', 'Es una caja misteriosa, quien sabe que contiene?\r\nSolo te podes arriesgar intercambiÃƒÂ¡ndola.', 'Intercambio por cosas de la categorÃƒÂ­a miscelÃƒÂ¡nea.', 'https://eldiadehoy.net/wp-content/uploads/2016/09/caja-simpsons.jpg', 2, 10, 8);
 
 -- --------------------------------------------------------
 
@@ -406,7 +408,7 @@ ALTER TABLE `permisos`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `propuesta`

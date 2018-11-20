@@ -13,7 +13,7 @@
 </head>
 <body>
 	<header>
-		<?php include "navbar-nologueado.php"; ?>
+		<?php include "dibujar_navbar.php"; ?>
 	</header>
 	
 	<div class="container">
@@ -84,8 +84,8 @@
 				</ul>
 			</div>
 			<div class="col-md-2 col-lg-2 col-xs-12 col-sm-12">
-				<a href="iniciar-sesion.php"><button type="button" id="margenSuperiorBoton" class="btn btn-default btn-block"><h5><strong>Proponer Trueque</strong></h5></button></a>
-				<a href="iniciar-sesion.php"><button type="button" id="margenSuperiorBoton" class="btn btn-default btn-block"><h5><strong>Ver Cartera</strong></h5></button></a>
+				<button type="button" id="margenSuperiorBoton" class="btn btn-default btn-block"><h5><strong>Proponer Trueque</strong></h5></button>
+				<button type="button" id="margenSuperiorBoton" class="btn btn-default btn-block"><h5><strong>Ver Cartera</strong></h5></button>
 			</div>
 		</div>
 		<div class="row">

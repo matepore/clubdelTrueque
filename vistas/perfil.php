@@ -12,56 +12,36 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+	<header>
+		<?php include "dibujar_navbar.php"; ?>
+	</header>
+
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-				<h1 class="page-header"><p class="text-center">Perfil</p></h1>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
-				<img src="img/usuario/usuario2(512x511).jpg" class="img-responsive">
-				<h2 class="text-center">Nahuel Cabrera</h2>
-			</div>
-			<div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-				<div>
-					<h3 id="titulo-perfil">Datos de Cuenta</h3>
-					<div id="info-perfil">
-						<h4 class="text-center">E-mail <small>nahuel.cabrera.gmail.com</small></h4>
-						<h4 class="text-center">Contraseña <small>****</small></h4>
-					</div>
-				</div>
-				<div>
-					<div class="hidden-xs hidden-sm">
-						<p class="text-right"><button type="button" class="btn btn-default" id="boton-navbar" data-toggle="modal" data-target="#cuentaModal"><strong>Cambiar contraseña</strong></button></p>
-					</div>
-					<div class="hidden-md hidden-lg">
-						<p class="text-right"><button type="button" class="btn btn-default btn-block" id="boton-navbar" data-toggle="modal" data-target="#cuentaModal"><strong>Cambiar Contraseña</strong></button></p>
-					</div>
-				</div>
-				
-				<div>
-					<h3 id="titulo-perfil">Datos Personales</h3>
-					<div id="info-perfil">
-						<h4 class="text-center">Nombre <small>Nahuel</small></h4>
-						<h4 class="text-center">Apellido <small>Cabrera</small></h4>
-						<h4 class="text-center">Provincia <small>Buenos Aires</small></h4>
-						<h4 class="text-center">Localidad <small>Ezeiza</small></h4>
-						<h4 class="text-center">Fecha de Nacimiento <small>24/07/93</small></h4>
-						<h4 class="text-center">Teléfono <small>42326843</small></h4>
-					</div>
-				</div>
-				<div>
-					<div class="hidden-xs hidden-sm">
-						<p class="text-right"><button type="button" class="btn btn-default" id="boton-navbar" data-toggle="modal" data-target="#infoModal"><strong>Editar información</strong></button></p>
-					</div>
-					<div class="hidden-md hidden-lg">
-						<p class="text-right"><button type="button" class="btn btn-default btn-block" id="boton-navbar" data-toggle="modal" data-target="#infoModal"><strong>Editar información</strong></button></p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+		<?php
+			echo "<div class='row'><div class='col-md-12 col-lg-12 col-xs-12 col-sm-12'><h1 class='page-header'><p class='text-center'>Perfil</p></h1></div></div><div class='row'><div class='col-md-4 col-lg-4 col-xs-12 col-sm-12'>";
+
+			echo "<img src='".$_SESSION["avatar"]."' class='img-responsive'>";
+			echo "<h2 class='text-center'>".$_SESSION["nombre"]." ".$_SESSION["apellido"]."</h2>";
+
+			echo "</div><div class='col-md-8 col-lg-8 col-xs-12 col-sm-12'><div><h3 id='titulo-perfil'>Datos de Cuenta</h3><div id='info-perfil'>";
+
+			echo "<h4 class='text-center'>E-mail <small>".$_SESSION["email"]."</small></h4>";
+
+			echo "<h4 class='text-center'>Contraseña <small>****</small></h4></div></div>";
+			echo "<div class='hidden-xs hidden-sm'><p class='text-right'><button type='button' class='btn btn-default' id='boton-navbar' data-toggle='modal' data-target='#cuentaModal'><strong>Cambiar contraseña</strong></button></p></div>";
+			echo "<div class='hidden-md hidden-lg'><p class='text-right'><button type='button' class='btn btn-default btn-block' id='boton-navbar' data-toggle='modal' data-target='#cuentaModal'><strong>Cambiar contraseña</strong></button></p></div></div>";
+			echo "<div><h3 id='titulo-perfil'>Datos Personales</h3><div id='info-perfil'>";
+
+			echo "<h4 class='text-center'>Nombre <small>".$_SESSION["nombre"]."</small></h4>";
+			echo "<h4 class='text-center'>Apellido <small>".$_SESSION["apellido"]."</small></h4>";
+			echo "<h4 class='text-center'>Provincia <small>".$_SESSION["email"]."</small></h4>";
+			echo "<h4 class='text-center'>Localidad <small>".$_SESSION["localidad"]."</small></h4>";
+			echo "<h4 class='text-center'>Fecha de Nacimiento <small>".$_SESSION["fechaDeNacimiento"]."</small></h4>";
+			echo "<h4 class='text-center'>Teléfono <small>".$_SESSION["telefono"]."</small></h4>";
+
+			echo "</div></div><div><div class='hidden-xs hidden-sm'><p class='text-right'><button type='button' class='btn btn-default' id='boton-navbar' data-toggle='modal' data-target='#infoModal'><strong>Editar información</strong></button></p>";
+			echo "</div><div class='hidden-md hidden-lg'><p class='text-right'><button type='button' class='btn btn-default btn-block' id='boton-navbar' data-toggle='modal' data-target='#infoModal'><strong>Editar información</strong></button></p></div></div></div></div></div>";
+		?>
 
 	<div id="cuentaModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
@@ -76,14 +56,14 @@
 	                        <label><b>Ingrese contraseña antigua:</b></label>
 	                        <div class="input-group">
 	                            <span class="input-group-addon"><i class="fas fa-unlock"></i></span>
-	                            <input type="password" class="form-control" name="contraseña" placeholder="Ingrese contraseña" pattern="" required>
+	                            <input type="password" class="form-control" name="contraseña" placeholder="Ingrese contraseña" required>
 	                        </div>
                     	</div>
                     	<div class="form-group">
 	                        <label><b>Ingrese la nueva contraseña:</b></label>
 	                        <div class="input-group">
 	                            <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>
-	                            <input type="password" class="form-control" name="contraseña" placeholder="Ingrese contraseña" pattern="" required>
+	                            <input type="password" class="form-control" name="contraseña" placeholder="Ingrese contraseña" required>
 	                        </div>
                     	</div>
 						<div class="form-group">
@@ -109,14 +89,14 @@
 	                        <label><b>Localidad:</b></label>
 	                        <div class="input-group">
 	                            <span class="input-group-addon"><i class="fas fa-hotel"></i></span>
-								<input type="text" class="form-control" placeholder="Ingrese localidad" value="Ezeiza" pattern="" required>
+								<input type="text" class="form-control" placeholder="Ingrese localidad" value="Ezeiza" required>
 	                        </div>
                     	</div>
                     	<div class="form-group">
 	                        <label><b>Provincia:</b></label>
 	                        <div class="input-group">
 								<span class="input-group-addon"><i class="fas fa-globe-americas"></i></span>
-								<input type="text" class="form-control" placeholder="Ingrese provincia" value="Buenos Aires" pattern="" required>
+								<input type="text" class="form-control" placeholder="Ingrese provincia" value="Buenos Aires" required>
 							</div>
                     	</div>
 						<div class="form-group">

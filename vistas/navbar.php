@@ -33,7 +33,7 @@
 			    <li class="dropdown">
 			        <a class="dropdown-toggle" data-toggle="dropdown" id="navLetra" href="#"><span class="fas fa-cog fa-2x"></span></a>
 			        <ul class="dropdown-menu">
-			        	<li><a href="perfil.php"><span class="fas fa-user"></span> Mi Perfil</a></li>
+			        	<li><a href="dibujar_perfil.php"><span class="fas fa-user"></span> Mi Perfil</a></li>
 						<li><a href="dibujar_cartera.php"><span class="fas fa-wallet"></span> Mi Cartera</a></li>
 						<li><a href="persistir_producto.php"><span class="fas fa-cart-plus"></span> Agregar Producto</a></li>
 						<li><a href="#"><span class="fas fa-list"></span> Historial de Trueques</a></li>
@@ -55,7 +55,7 @@
 						<span class="fas fa-bars fa-2x"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="perfil.php"><span class="fas fa-user"></span> Mi Perfil</a></li>
+						<li><a href="dibujar_perfil.php"><span class="fas fa-user"></span> Mi Perfil</a></li>
 						<li><a href="dibujar_cartera.php"><span class="fas fa-wallet"></span> Mi Cartera</a></li>
 						<li><a href="persistir_producto.php"><span class="fas fa-cart-plus"></span> Agregar Producto</a></li>
 						<li><a href="#"><span class="fas fa-list"></span> Historial de Trueques</a></li>
