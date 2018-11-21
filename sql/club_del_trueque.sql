@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2018 a las 05:30:12
+-- Tiempo de generación: 21-11-2018 a las 20:09:41
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.1.23
 
@@ -196,7 +196,11 @@ INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `intereses`, `im
 (6, 'Playstation 4', 'Es la Playstation 4 original con 1TB de disco y un joystick original.', 'Acepto una Xbox One X o una PC Gamer.', 'https://i.imgur.com/oMeBGSk.jpg', 1, 3, 8),
 (7, 'Celular Alcatel OneTouch POP 2', 'Es un celular de calidad media baja totalmente funcional y solo fue usado una vez.', 'Intercambio por Auriculares, zapatillas o alguna cosa de cocina.', 'https://http2.mlstatic.com/alcatel-one-touch-pop-2-casi-nuevo-bien-cuidado-D_NQ_NP_977579-MLA28218992144_092018-F.jpg', 2, 3, 8),
 (9, 'La caja secreta', 'Es una caja misteriosa, quien sabe que contiene?\r\nSolo te podes arriesgar intercambiÃƒÂ¡ndola.', 'Intercambio por cosas de la categorÃƒÂ­a miscelÃƒÂ¡nea.', 'https://eldiadehoy.net/wp-content/uploads/2016/09/caja-simpsons.jpg', 2, 10, 8),
-(10, 'Playstation 1', 'Es la Playstation 1 con un joystick original.', 'La cambio por una Playstation 2 que funcione.', 'https://static.alfabetajuega.com/abj_public_files/multimedia/imagenes/201605/150375.alfabetajuega-ps1.jpg', 1, 3, 8);
+(10, 'Playstation 1', 'Es la Playstation 1 con un joystick original.', 'La cambio por una Playstation 2 que funcione.', 'https://static.alfabetajuega.com/abj_public_files/multimedia/imagenes/201605/150375.alfabetajuega-ps1.jpg', 1, 3, 8),
+(11, 'Heladera Patrick', 'Es una heladera patrick del 2000 frio directo.', 'Acepto freezers portables.', 'https://http2.mlstatic.com/heladera-patrick-no-frost-D_NQ_NP_892321-MLA20738124980_052016-F.jpg', 1, 1, 11),
+(12, 'Zapato Guante negro', 'Los clÃƒÂ¡sicos zapatos guante de color negro serie 31043.', 'Acepto chalecos de traje o camisas.', 'https://home.ripley.cl/store/Attachment/WOP/D311/2000323308874/2000323308874_2.jpg', 2, 5, 11),
+(13, 'Bicicleta reclinada Hi Bent', 'Es la bicicleta reclinada Hi Bent MRacer Pro Travel en color blanco y amarillo.', 'Acepto cualquier cosa de la categorÃƒÂ­a informÃƒÂ¡tica.', 'https://www.hi-bent.com.ar/wp-content/uploads/2018/02/Bicicleta-Reclinada-Hi-Bent-MRacer-Pro-Travel-a-min.jpg', 1, 6, 11),
+(14, 'Auriculares OMORC', 'Auriculares OMORC serie SX500, vienen color negro y con repuesto de cable.', 'Quiero un celular, escucho ofertas.', 'https://images-na.ssl-images-amazon.com/images/I/71dBCktsBgL._SX569_.jpg', 1, 3, 11);
 
 -- --------------------------------------------------------
 
@@ -409,7 +413,7 @@ ALTER TABLE `permisos`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `propuesta`
