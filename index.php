@@ -34,69 +34,41 @@
 				</div>
             </div>
 		</div>
-		<div class="row text-center">
-			<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="margenAbajo">
-				<!--<label>Set de cuchillos</label>
-				<a href="#"><img src="img/cocina/set-cuchillos.jpg" class="img-responsive"></a>-->
-				<?php
-					require_once('conexion.php');
-					$producto = "SELECT nombre, imagen FROM producto WHERE id_producto = 2";
+		
+		<?php
+			require_once('conexion.php');
+			$producto = "SELECT * FROM producto WHERE id_estado_producto = 1";
 
-					foreach($con->query($producto) as $row) {
-						echo "<label>".$row["nombre"];
-						echo "<a href='#'><img src='".$row["imagen"]."' class='img-responsive'></a>";
-					}
-				?>
-			</div>
-			<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="margenAbajo">
-				<label>Jabonera para ducha</label>
-				<a href="#"><img src="img/banio/jabonera-pared.jpg" class="img-responsive"></a>
-			</div>
-			<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="margenAbajo">
-				<label>Celular Huawei mate 10 lite</label>
-				<a href="#"><img src="img/informatica/huawei-mate-10-lite.jpg" class="img-responsive"></a>
-			</div>
-			<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="margenAbajo">
-				<label>Batidora de mano</label>
-				<a href="#"><img src="img/hogar-y-electrodomesticos/batidora-de-mano.jpg" class="img-responsive"></a>
-			</div>
-		</div>
-		<div class="row text-center">
-			<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="margenAbajo">
-				<label>Campera verde</label>
-				<a href="#"><img src="img/ropa/campera.jpg" class="img-responsive"></a>
-			</div>
-			<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="margenAbajo">
-				<label>Casco para motos</label>
-				<a href="#"><img src="img/vehiculos/casco.jpg" class="img-responsive"></a>
-			</div>
-			<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="margenAbajo">
-				<label>Mesita de luz</label>
-				<a href="#"><img src="img/muebles/mesa-de-luz.jpg" class="img-responsive"></a>
-			</div>
-			<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="margenAbajo">
-				<label>Juego de destornilladores</label>
-				<a href="#"><img src="img/herramientas/juego-destornillador.jpg" class="img-responsive"></a>
-			</div>
-		</div>
-		<div class="row text-center">
-			<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="margenAbajo">
-				<label>Triciclo</label>
-				<a href="#"><img src="img/juguetes/triciclo.jpg" class="img-responsive"></a>
-			</div>
-			<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="margenAbajo">
-				<label>Saga de Harry Potter</label>
-				<a href="#"><img src="img/libros/saga-harry-potter.jpg" class="img-responsive"></a>
-			</div>
-			<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="margenAbajo">
-				<label>Escritorio Brook</label>
-				<a href="#"><img src="img/muebles/escritorio-brook.jpg" class="img-responsive"></a>
-			</div>
-			<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="margenAbajo">
-				<label>Copas para vino x2</label>
-				<a href="#"><img src="img/cocina/copas-par.jpg" class="img-responsive" data-toggle="modal" data-target="#productoModal"></a>
-			</div>
-		</div>
+			$contador = 0;
+			$contenido = 0;
+			foreach($con->query($producto) as $row) {
+				if($contador == 0) {
+					$contenido = 1;
+					$contador++;
+					echo "<div class='row text-center'>";
+					echo "<div class='col-lg-3 col-md-3 col-xs-12 col-sm-12' id='margenAbajo'>";
+					echo "<p class='text-left'><label>".$row["nombre"]."</label></p>";
+					echo "<img src='".$row["imagen"]."' class='img-responsive' style='width:80%'></a></div>";
+				}
+				elseif($contador == 4) {
+					$contador = 1;
+					echo "</div><div class='row text-center'>";
+					echo "<div class='col-lg-3 col-md-3 col-xs-12 col-sm-12' id='margenAbajo'>";
+					echo "<p class='text-left'><label>".$row["nombre"]."</label></p>";
+					echo "<img src='".$row["imagen"]."' class='img-responsive' style='width:80%'></a></div>";
+				}
+				else {
+					$contador++;
+					echo "<div class='col-lg-3 col-md-3 col-xs-12 col-sm-12' id='margenAbajo'>";
+					echo "<p class='text-left'><label>".$row["nombre"]."</label></p>";
+					echo "<img src='".$row["imagen"]."' class='img-responsive' style='width:80%'></a></div>";
+				}
+			}
+			if($contenido == 0) {
+				echo "<h1><p class='text-center'>Parece que no hay productos todavia</p></h1>";
+            	echo "<h1><p class='text-center'>No esperes mas y se el primero en agregarlos ingresando <a href='persistir_producto.php'>aqui</a>.</p></h1>";
+			}
+		?>
 
 		<div class="row text-center">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
