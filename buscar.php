@@ -13,149 +13,61 @@
 </head>
 <body>
 	<header>
-		<?php include "navbar-nologueado.php"; ?>
+		<?php include "dibujar_navbar.php"; ?>
 	</header>
 	
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-				<h1>Categoría</h1>
-				<h1 class="page-header"><small>Cocina</small></h1>
+				<h1 class="page-header">Resultados de la busqueda</h1>
 			</div>
 		</div>
+		
+		<?php
+			require_once('conexion.php');
+			$query = $_GET['query'];
+			$query = htmlspecialchars($query);
+			$query2 = "SELECT * FROM producto WHERE (nombre LIKE '%".$query."%' OR nombre LIKE '".$query."%' OR nombre LIKE '%".$query."')";
 
-		<div class="row text-center">
-			<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"></div>
-			<div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-				<div class="well col-md-12 col-lg-12 col-xs-12 col-sm-12" id="producto-buscar">
-					<div>
-						<label><h3>Set de cuchillos</h3></label>
-					</div>
-					<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
-						<a href="#"><img src="img/cocina/set-cuchillos.jpg" class="img-responsive"></a>
-					</div>
-					<div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-						<h4><p class="text-left"><span class="fas fa-user-circle"></span> Luis Gomez</p></h4>
-						<h4><p class="text-left"><span class="fas fa-boxes"></span> Cocina</p></h4>
-						<h4><p class="text-left"><span class="fas fa-thumbs-up"></span> Intereses:</p></h4>
-						<h4><p class="text-left" id="intereses">Acepto chops de cerveza metalicos o de ceramica.</p></h4>
-					</div>
-				</div>
-				<div class="well col-md-12 col-lg-12 col-xs-12 col-sm-12" id="producto-buscar">
-					<div>
-						<label><h3>Copas para vino x2</h3></label>
-					</div>
-					<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
-						<a href="producto.php"><img src="img/cocina/copas-par.jpg" class="img-responsive"></a>
-					</div>
-					<div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-						<h4><p class="text-left"><span class="fas fa-user-circle"></span> Martin Perez</p></h4>
-						<h4><p class="text-left"><span class="fas fa-boxes"></span> Cocina</p></h4>
-						<h4><p class="text-left"><span class="fas fa-thumbs-up"></span> Intereses:</p></h4>
-						<h4><p class="text-left" id="intereses">Me interesan vasos, cubiertos, platos y cosas de cocina.</p></h4>
-					</div>
-				</div>
-				<div class="well col-md-12 col-lg-12 col-xs-12 col-sm-12" id="producto-buscar">
-					<div>
-						<label><h3>Escurridor bandeja</h3></label>
-					</div>
-					<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
-						<a href="#"><img src="img/cocina/escurridor.jpg" class="img-responsive"></a>
-					</div>
-					<div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-						<h4><p class="text-left"><span class="fas fa-user-circle"></span> Paula Spagnuolo</p></h4>
-						<h4><p class="text-left"><span class="fas fa-boxes"></span> Cocina</p></h4>
-						<h4><p class="text-left"><span class="fas fa-thumbs-up"></span> Intereses:</p></h4>
-						<h4><p class="text-left" id="intereses">Acepto ropa, pantalones o remeras.</p></h4>
-					</div>
-				</div>
-				<div class="well col-md-12 col-lg-12 col-xs-12 col-sm-12" id="producto-buscar">
-					<div>
-						<label><h3>Frascos para aceite, sal y pimienta</h3></label>
-					</div>
-					<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
-						<a href="#"><img src="img/cocina/frascos-condimentos.jpg" class="img-responsive"></a>
-					</div>
-					<div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-						<h4><p class="text-left"><span class="fas fa-user-circle"></span> Jorge Charquero</p></h4>
-						<h4><p class="text-left"><span class="fas fa-boxes"></span> Cocina</p></h4>
-						<h4><p class="text-left"><span class="fas fa-thumbs-up"></span> Intereses:</p></h4>
-						<h4><p class="text-left" id="intereses">Quiero servilletero o salero.</p></h4>
-					</div>
-				</div>
-				<div class="well col-md-12 col-lg-12 col-xs-12 col-sm-12" id="producto-buscar">
-					<div>
-						<label><h3>Individual pizarra</h3></label>
-					</div>
-					<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
-						<a href="#"><img src="img/cocina/individual.jpg" class="img-responsive"></a>
-					</div>
-					<div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-						<h4><p class="text-left"><span class="fas fa-user-circle"></span> Damian Scuro</p></h4>
-						<h4><p class="text-left"><span class="fas fa-boxes"></span> Cocina</p></h4>
-						<h4><p class="text-left"><span class="fas fa-thumbs-up"></span> Intereses:</p></h4>
-						<h4><p class="text-left" id="intereses">Ofrecer.</p></h4>
-					</div>
-				</div>
-				<div class="well col-md-12 col-lg-12 col-xs-12 col-sm-12" id="producto-buscar">
-					<div>
-						<label><h3>Taza con logo inteligente de bateria</h3></label>
-					</div>
-					<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
-						<a href="#"><img src="img/cocina/jarro-bateria.jpg" class="img-responsive"></a>
-					</div>
-					<div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-						<h4><p class="text-left"><span class="fas fa-user-circle"></span> Lucas Monje</p></h4>
-						<h4><p class="text-left"><span class="fas fa-boxes"></span> Cocina</p></h4>
-						<h4><p class="text-left"><span class="fas fa-thumbs-up"></span> Intereses:</p></h4>
-						<h4><p class="text-left" id="intereses">Copas para champagne, vino o sidra.</p></h4>
-					</div>
-				</div>
-				<div class="well col-md-12 col-lg-12 col-xs-12 col-sm-12" id="producto-buscar">
-					<div>
-						<label><h3>Repasadores sinteticos x2</h3></label>
-					</div>
-					<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
-						<a href="#"><img src="img/cocina/repasador.jpg" class="img-responsive"></a>
-					</div>
-					<div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-						<h4><p class="text-left"><span class="fas fa-user-circle"></span> Nicolas Barraza</p></h4>
-						<h4><p class="text-left"><span class="fas fa-boxes"></span> Cocina</p></h4>
-						<h4><p class="text-left"><span class="fas fa-thumbs-up"></span> Intereses:</p></h4>
-						<h4><p class="text-left" id="intereses">Intercambio por escoba.</p></h4>
-					</div>
-				</div>
-				<div class="well col-md-12 col-lg-12 col-xs-12 col-sm-12" id="producto-buscar">
-					<div>
-						<label><h3>Sacacorchos de varios colores</h3></label>
-					</div>
-					<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
-						<a href="#"><img src="img/cocina/sacacorchos.jpg" class="img-responsive"></a>
-					</div>
-					<div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-						<h4><p class="text-left"><span class="fas fa-user-circle"></span> Esteban Espala</p></h4>
-						<h4><p class="text-left"><span class="fas fa-boxes"></span> Cocina</p></h4>
-						<h4><p class="text-left"><span class="fas fa-thumbs-up"></span> Intereses:</p></h4>
-						<h4><p class="text-left" id="intereses">Tapones para botellas o posavasos.</p></h4>
-					</div>
-				</div>
-				<div class="well col-md-12 col-lg-12 col-xs-12 col-sm-12" id="producto-buscar">
-					<div>
-						<label><h3>Sarten antiadherente</h3></label>
-					</div>
-					<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
-						<a href="#"><img src="img/cocina/sarten.jpg" class="img-responsive"></a>
-					</div>
-					<div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-						<h4><p class="text-left"><span class="fas fa-user-circle"></span> Rodrigo Mendoza</p></h4>
-						<h4><p class="text-left"><span class="fas fa-boxes"></span> Cocina</p></h4>
-						<h4><p class="text-left"><span class="fas fa-thumbs-up"></span> Intereses:</p></h4>
-						<h4><p class="text-left" id="intereses">Set de cuchillos o juego de cubiertos.</p></h4>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+			if(($con->query($query2))->rowCount() > 0) {
+				echo "<div class='row text-center'><div class='col-md-4 col-lg-4 col-xs-12 col-sm-12'></div><div class='col-md-8 col-lg-8 col-xs-12 col-sm-12'>";
+				foreach($con->query($query2) as $row) {
+					echo "<div class='well col-md-12 col-lg-12 col-xs-12 col-sm-12' id='producto-buscar'>";
+
+					echo "<div><label><h3>".$row["nombre"]."</h3></label></div>";
+
+					echo "<div class='col-md-4 col-lg-4 col-xs-12 col-sm-12'>";
+
+					echo "<img src='".$row["imagen"]."' class='img-responsive' style='width:100%'></div>";
+
+					echo "<div class='col-md-8 col-lg-8 col-xs-12 col-sm-12'>";
+
+					$usuario = "SELECT nombre, apellido FROM usuario WHERE id_usuario = ".$row["id_usuario"]."";
+					foreach($con->query($usuario) as $row2) {
+						$nombre = utf8_encode($row2["nombre"]);
+						$apellido = utf8_encode($row2["apellido"]);
+					}
+					echo "<h4><p class='text-left'><span class='fas fa-user-circle'></span>".$nombre." ".$apellido."</p></h4>";
+
+					$categoria = "SELECT nombre FROM categoria WHERE id_categoria = ".$row["id_categoria"]."";
+					foreach($con->query($categoria) as $row3) {
+						$nombre_categoria = utf8_encode($row3["nombre"]);
+					}
+
+					echo "<h4><p class='text-left'><span class='fas fa-boxes'></span>".$nombre_categoria."";
+
+					echo "<h4><p class='text-left'><span class='fas fa-thumbs-up'></span> Intereses:</p></h4>";
+
+					echo "<h4><p class='text-left' id='intereses'>".$row["intereses"]."</p></h4>";
+
+					echo "</div></div>";
+				}
+			}
+			else {
+				echo "<h1 class='text-center'><small>No hay coincidencias.</small></h1>";
+			}
+		?>
+		
 	<div class="row text-center">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <ul class="pagination">

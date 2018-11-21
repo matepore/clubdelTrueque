@@ -34,7 +34,7 @@
 
 			echo "<h4 class='text-center'>Nombre <small>".$_SESSION["nombre"]."</small></h4>";
 			echo "<h4 class='text-center'>Apellido <small>".$_SESSION["apellido"]."</small></h4>";
-			echo "<h4 class='text-center'>Provincia <small>".$_SESSION["email"]."</small></h4>";
+			echo "<h4 class='text-center'>Provincia <small>".$_SESSION["provincia"]."</small></h4>";
 			echo "<h4 class='text-center'>Localidad <small>".$_SESSION["localidad"]."</small></h4>";
 			echo "<h4 class='text-center'>Fecha de Nacimiento <small>".$_SESSION["fechaDeNacimiento"]."</small></h4>";
 			echo "<h4 class='text-center'>Teléfono <small>".$_SESSION["telefono"]."</small></h4>";
