@@ -15,11 +15,11 @@
 			        	?>
 			        </ul>
 			    </li>
-			    <form class="navbar-form navbar-left" action="/action_page.php">
+			    <form class="navbar-form navbar-left" action="buscar.php" method="GET">
 			    	<div class="form-group">
-			    		<input type="text" class="form-control" placeholder="Buscar">
+			    		<input type="text" class="form-control" placeholder="Buscar" name="query">
 			    	</div>
-			    	<button type="submit" class="btn btn-default" id="boton-navbar"><span class="fas fa-search"></span></button>
+			    	<button type="submit" class="btn btn-default" id="boton-navbar" name="buscar"><span class="fas fa-search"></span></button>
 			    </form>
 			</ul>
 		    <ul class="nav navbar-nav navbar-right">

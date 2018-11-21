@@ -27,7 +27,7 @@
 			require_once('conexion.php');
 			$query = $_GET['query'];
 			$query = htmlspecialchars($query);
-			$query2 = "SELECT * FROM producto WHERE (nombre LIKE '%".$query."%' OR nombre LIKE '".$query."%' OR nombre LIKE '%".$query."')";
+			$query2 = "SELECT * FROM producto WHERE (nombre LIKE '%".$query."%' OR nombre LIKE '".$query."%' OR nombre LIKE '%".$query."') AND id_estado_producto = 1";
 
 			if(($con->query($query2))->rowCount() > 0) {
 				echo "<div class='row text-center'><div class='col-md-4 col-lg-4 col-xs-12 col-sm-12'></div><div class='col-md-8 col-lg-8 col-xs-12 col-sm-12'>";
@@ -47,14 +47,14 @@
 						$nombre = utf8_encode($row2["nombre"]);
 						$apellido = utf8_encode($row2["apellido"]);
 					}
-					echo "<h4><p class='text-left'><span class='fas fa-user-circle'></span>".$nombre." ".$apellido."</p></h4>";
+					echo "<h4><p class='text-left'><span class='fas fa-user-circle'></span> ".$nombre." ".$apellido."</p></h4>";
 
 					$categoria = "SELECT nombre FROM categoria WHERE id_categoria = ".$row["id_categoria"]."";
 					foreach($con->query($categoria) as $row3) {
 						$nombre_categoria = utf8_encode($row3["nombre"]);
 					}
 
-					echo "<h4><p class='text-left'><span class='fas fa-boxes'></span>".$nombre_categoria."";
+					echo "<h4><p class='text-left'><span class='fas fa-boxes'></span> ".$nombre_categoria."";
 
 					echo "<h4><p class='text-left'><span class='fas fa-thumbs-up'></span> Intereses:</p></h4>";
 
@@ -68,7 +68,7 @@
 			}
 		?>
 		
-	<div class="row text-center">
+	<!--<div class="row text-center">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <ul class="pagination">
                 <li><a href="#">&laquo;</a></li>
@@ -80,6 +80,6 @@
                 <li><a href="#">&raquo;</a></li>
             </ul>
         </div>
-    </div>
+    </div>-->
 </body>
 </html>

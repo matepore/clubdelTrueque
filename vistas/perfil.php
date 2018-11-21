@@ -51,23 +51,23 @@
 					<h2 class="text-center">Cambiar contraseña</h2>
 				</div>
 				<div class="modal-body">
-					<form action="" method="POST">
+					<form action="cambiar_password.php" method="POST">
 						<div class="form-group">
 	                        <label><b>Ingrese contraseña antigua:</b></label>
 	                        <div class="input-group">
 	                            <span class="input-group-addon"><i class="fas fa-unlock"></i></span>
-	                            <input type="password" class="form-control" name="contraseña" placeholder="Ingrese contraseña" required>
+	                            <input type="password" class="form-control" name="password_viejo" placeholder="Ingrese contraseña" required>
 	                        </div>
                     	</div>
                     	<div class="form-group">
 	                        <label><b>Ingrese la nueva contraseña:</b></label>
 	                        <div class="input-group">
 	                            <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>
-	                            <input type="password" class="form-control" name="contraseña" placeholder="Ingrese contraseña" required>
+	                            <input type="password" class="form-control" name="password_nuevo" placeholder="Ingrese contraseña" required>
 	                        </div>
                     	</div>
 						<div class="form-group">
-							<input type="submit" class="btn btn-primary btn-block" class="form-control" value="Cambiar">
+							<input type="submit" class="btn btn-primary btn-block" class="form-control" value="Cambiar" name="cambiarPassword">
 							<input type="reset" class="btn btn-danger btn-block" class="form-control" value="Limpiar Campos">
 						</div>
 					</form>

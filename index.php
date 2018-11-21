@@ -70,7 +70,7 @@
 			}
 		?>
 
-		<div class="row text-center">
+		<!--<div class="row text-center">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <ul class="pagination">
                     <li><a href="#">&laquo;</a></li>
@@ -82,7 +82,7 @@
                     <li><a href="#">&raquo;</a></li>
                 </ul>
             </div>
-        </div>
+        </div>-->
 	</div>
 
 	<div id="productoModal" class="modal fade" role="dialog">
