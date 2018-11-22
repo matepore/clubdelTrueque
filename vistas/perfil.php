@@ -84,23 +84,30 @@
 					<h2 class="text-center">Editar datos personales</h2>
 				</div>
 				<div class="modal-body">
-					<form action="" method="POST">
+					<form action="cambiar_informacion.php" method="POST">
 						<div class="form-group">
 	                        <label><b>Localidad:</b></label>
 	                        <div class="input-group">
 	                            <span class="input-group-addon"><i class="fas fa-hotel"></i></span>
-								<input type="text" class="form-control" placeholder="Ingrese localidad" value="Ezeiza" required>
+	                            <?php echo "<input type='tex't class='form-control' placeholder='Ingrese localidad' name='localidad' value='".$_SESSION["localidad"]."' required>"; ?>
 	                        </div>
                     	</div>
                     	<div class="form-group">
 	                        <label><b>Provincia:</b></label>
 	                        <div class="input-group">
 								<span class="input-group-addon"><i class="fas fa-globe-americas"></i></span>
-								<input type="text" class="form-control" placeholder="Ingrese provincia" value="Buenos Aires" required>
+								<?php echo "<input type='text' class='form-control' placeholder='Ingrese provincia' name='provincia' value='".$_SESSION["provincia"]."' required>"; ?>
 							</div>
                     	</div>
+                    	<div class="form-group">
+                    		<label><b>Telefono:</b></label>
+                    		<div class="input-group">
+                    			<span class="input-group-addon"><i class="fas fa-phone"></i></span>
+                    			<?php echo "<input type='number' class='form-control' placeholder='Ingrese teléfono' name='telefono' value='".$_SESSION["telefono"]."' required>"; ?>
+                    		</div>
+                    	</div>
 						<div class="form-group">
-							<input type="submit" class="btn btn-primary btn-block" class="form-control" value="Cambiar">
+							<input type="submit" name="cambiarInfo" class="btn btn-primary btn-block" class="form-control" value="Cambiar">
 							<input type="reset" class="btn btn-danger btn-block" class="form-control" value="Restaurar Campos">
 						</div>
 					</form>

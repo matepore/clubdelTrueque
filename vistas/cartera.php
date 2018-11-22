@@ -36,11 +36,12 @@
                 echo "<div class='panel-body'><img class='img-responsive img-thumbnail' src='".utf8_encode($row['imagen'])."'>";
                 echo "<p>Descripción: ".utf8_encode($row['descripcion'])."</p>";
                 if($row["id_estado_producto"] == 1) {
-                    echo "<p class='text-right'><kbd id='colorKBD'><span class='fas fa-eye'></span> Publico</kbd></p>";
+                    echo "<p class='text-right'><kbd id='colorKBD' name='".$row["id_producto"]."'><span class='fas fa-eye'></span> Publico</kbd></p>";
                 }
                 else {
-                    echo "<p class='text-right'><kbd id='colorKBDA'><span class='fas fa-eye-slash'></span> Privado</kbd></p>";
+                    echo "<p class='text-right'><kbd id='colorKBDA' name='".$row["id_producto"]."'><span class='fas fa-eye-slash'></span> Privado</kbd></p>";
                 }
+                echo "<button type='button' class='btn btn-default btn-block' id='boton-alternativo' name='cambiarPrivacidad' data-toggle='modal' data-target='#privacidadModal'><span class='fas fa-eye'> Cambiar privacidad</span></button>";
                 echo "</div></div></div>";
             }
             elseif ($contador == 3) {
@@ -51,11 +52,12 @@
                 echo "<div class='panel-body'><img class='img-responsive img-thumbnail' src='".utf8_encode($row['imagen'])."'>";
                 echo "<p>Descripción: ".utf8_encode($row['descripcion'])."</p>";
                 if($row["id_estado_producto"] == 1) {
-                    echo "<p class='text-right'><kbd id='colorKBD'><span class='fas fa-eye'></span> Publico</kbd></p>";
+                    echo "<p class='text-right'><kbd id='colorKBD' name='".$row["id_producto"]."'><span class='fas fa-eye'></span> Publico</kbd></p>";
                 }
                 else {
-                    echo "<p class='text-right'><kbd id='colorKBDA'><span class='fas fa-eye-slash'></span> Privado</kbd></p>";
+                    echo "<p class='text-right'><kbd id='colorKBDA' name='".$row["id_producto"]."'><span class='fas fa-eye-slash'></span> Privado</kbd></p>";
                 }
+                echo "<button type='button' class='btn btn-default btn-block' id='boton-alternativo' name='cambiarPrivacidad' data-toggle='modal' data-target='#privacidadModal'><span class='fas fa-eye'> Cambiar privacidad</span></button>";
                 echo "</div></div></div>";
             }
             else {
@@ -65,11 +67,12 @@
                 echo "<div class='panel-body'><img class='img-responsive img-thumbnail' src='".utf8_encode($row['imagen'])."'>";
                 echo "<p>Descripción: ".utf8_encode($row['descripcion'])."</p>";
                 if($row["id_estado_producto"] == 1) {
-                    echo "<p class='text-right'><kbd id='colorKBD'><span class='fas fa-eye'></span> Publico</kbd></p>";
+                    echo "<p class='text-right'><kbd id='colorKBD' name='".$row["id_producto"]."'><span class='fas fa-eye'></span> Publico</kbd></p>";
                 }
                 else {
-                    echo "<p class='text-right'><kbd id='colorKBDA'><span class='fas fa-eye-slash'></span> Privado</kbd></p>";
+                    echo "<p class='text-right'><kbd id='colorKBDA' name='".$row["id_producto"]."'><span class='fas fa-eye-slash'></span> Privado</kbd></p>";
                 }
+                echo "<button type='button' class='btn btn-default btn-block' id='boton-alternativo' name='cambiarPrivacidad' data-toggle='modal' data-target='#privacidadModal'><span class='fas fa-eye'> Cambiar privacidad</span></button>";
                 echo "</div></div></div>";
             }
         }
@@ -79,6 +82,31 @@
             echo "<h1><p class='text-center'>No esperes mas y agregalos ingresando <a href='persistir_producto.php'>aqui</a>.</p></h1>";
         }
     ?>
+
+    <div id="privacidadModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" class="modal-title">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="text-center">Cambiar privacidad</h2>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <label>Selecciona la privacidad:</label>
+                            <select name="estado" class="form-control" id="sel2">
+                                <option>Publico</option>
+                                <option>Privado</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <p class="text-center"><button type="submit" name="cambiar-privacidad" class="btn btn-default" id="boton-navbar"><strong>Cambiar</strong></button></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

@@ -38,13 +38,6 @@
 					</div>
 
 					<div class="form-group">
-						<!--<label>Imagen del producto:</label><br>
-						<div class="hidden-xs hidden-sm">
-							<p class="text-center"><button type="button" class="btn btn-default" id="boton-alternativo"><span class="fas fa-camera"></span> <strong>Agregar foto</strong></button></p>
-						</div>
-						<div class="hidden-lg hidden-md">
-							<p class="text-center"><button type="button" class="btn btn-default btn-block" id="boton-alternativo"><span class="fas fa-camera fa-2x"></span> <strong>Agregar foto</strong></button></p>
-						</div>-->
 						<label>Ingrese la url de la imagen:</label>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fas fa-camera"></i></span>

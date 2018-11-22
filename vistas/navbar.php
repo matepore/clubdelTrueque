@@ -25,7 +25,6 @@
 		    <ul class="nav navbar-nav navbar-right">
 		    	<li><a id="navLetra" href="#"><span class="fas fa-bell fa-2x"></span></a></li>
 		    	<li>
-		    		<!--<a href="perfil.php" id="navLetra">Nahuel Cabrera <img src="img/usuario/usuario2.jpg" style="width:30px"></a>-->
 		    		<?php
 		    			echo "<a href='#' id='navLetra'>".$_SESSION["nombre"]." ".$_SESSION["apellido"]." "."<img src='".$_SESSION["avatar"]."' style='width:30px'></a>";
 		    		?>
