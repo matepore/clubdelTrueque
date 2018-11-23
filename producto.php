@@ -19,56 +19,41 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-				<h1 class="page-header"><p class="text-center">Copas para vino x2</p></h1>
+				<?php
+					echo "<h1 class='page-header'><p class='text-center'>".$producto_nombre."</p></h1>";
+				?>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
-				<div id="productoCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-					<ol class="carousel-indicators">
-						<li data-target="#productoCarousel" data-slide-to="0" class="active"></li>
-						<li data-target="#productoCarousel" data-slide-to="1"></li>
-						<li data-target="#productoCarousel" data-slide-to="2"></li>
-					</ol>
-
-					<div class="carousel-inner">
-						<div class="item active">
-							<img src="img/cocina/copas-par.jpg">
-						</div>
-
-						<div class="item">
-							<img src="img/cocina/copas-par-2.jpg">
-						</div>
-
-						<div class="item">
-							<img src="img/cocina/copas-par-3.jpg">
-						</div>
-					</div>
-
-					<a class="left carousel-control" href="#productoCarousel" data-slide="prev">
-						<span class="fas fa-arrow-alt-circle-left fa-fw fa-2x"></span>
-						<span class="sr-only">Anterior</span>
-					</a>
-					<a class="right carousel-control" href="#productoCarousel" data-slide="next">
-						<span class="fas fa-arrow-alt-circle-right fa-2x"></span>
-						<span class="sr-only">Siguiente</span>
-					</a>
-				</div>
+				<?php
+					echo "<img src='".$producto_imagen."' class='img-responsive'></img>";
+				?>
 			</div>
 			<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
 				<ul class="list-group">
 					<li class="list-group-item list-group-item-success" id="alertBA">
 						<span class="fas fa-boxes fa-2x"> Categoría </span>
 						<h3 class="text-center">
-							<kbd id="colorKBD">Cocina</kbd>
+							<?php
+								$producto_categoria = "SELECT nombre FROM categoria WHERE id_categoria = '".$producto_id_categoria."'";
+
+								foreach($con->query($producto_categoria) as $row2) {
+									echo "<kbd id='colorKBD'>".utf8_encode($row2["nombre"])."</kbd>";
+								}
+							?>
 						</h3>
 					</li>
 					<li class="list-group-item list-group-item-success" id="alertBA">
 						<span class="fas fa-user-circle fa-2x"> Usuario </span>
 						<a href="#">
-							<h3 class="text-center">
-								<kbd id="colorKBD">Martin Perez</kbd>
-							</h3>
+							<?php
+								$producto_usuario = "SELECT nombre, apellido FROM usuario WHERE id_usuario = '".$producto_id_usuario."'";
+
+								foreach($con->query($producto_usuario) as $row3) {
+									echo "<a href='#'><h3 class='text-center'><kbd id='colorKBD'>".utf8_encode($row3["nombre"])." ".utf8_encode($row3["apellido"])."</kbd></h3></a>";
+								}
+							?>
 						</a>
 					</li>
 					<li class="list-group-item list-group-item-success" id="alertBA">
@@ -78,8 +63,10 @@
 						</h3>
 					</li>
 					<li class="list-group-item list-group-item-success" id="alertBA">
-						<span class="far fa-thumbs-up fa-2x"> <strong>Intereses</strong> </span>
-						<h3 class="text-center" id="intereses">Me interesan vasos, cubiertos, platos y cosas de cocina.</h3>
+						<span class="far fa-thumbs-up fa-2x"> <strong>Intereses</strong></span>
+						<?php
+							echo "<h3 class='text-center' id='intereses'>".utf8_encode($producto_intereses)."</h3>";
+						?>
 					</li>
 				</ul>
 			</div>
@@ -91,12 +78,15 @@
 		<div class="row">
 			<div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
 				<h1 class="bg-success"><p class="text-center">Descripción</p></h1>
-				<h2><small>Copa ideal para utilizarse en exteriores, barcos y piletas.<br> Fabricada en acrílico durable que no perderá nunca su elegancia.<br> La sofisticación de los ambientes internos, ahora en el exterior.<br> Capacidad: 375 Ml.<br>No apto para líquidos calientes.<br></small></h2>
+				<?php
+					echo "<h2><small>".utf8_encode($producto_descripcion)."</small></h2>";
+				?>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
 				<h1 class="bg-success"><p class="text-center">Propuestas Rechazadas</p></h1>
+				<!--
 				<div class="well">
 					<div class="media">
 						<div class="media-left media-top">
@@ -132,10 +122,11 @@
 							<p class="text-right"><span class="fas fa-times" id="rechazado"></span> Trueque rechazado.</p>
 						</div>
 					</div>
-				</div>
+				</div>-->
 			</div>
 			<div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
 				<h1 class="bg-success"><p class="text-center">Comentarios</p></h1>
+				<!--
 				<div class="well">
 					<div class="media">
 						<div class="media-left media-top">
@@ -168,6 +159,7 @@
 						</div>
 					</div>
 				</div>
+				-->
 			</div>
 		</div>
 	</div>

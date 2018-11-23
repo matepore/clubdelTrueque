@@ -48,20 +48,20 @@
 					echo "<div class='row text-center'>";
 					echo "<div class='col-lg-3 col-md-3 col-xs-12 col-sm-12' id='margenAbajo'>";
 					echo "<p class='text-left'><label>".$row["nombre"]."</label></p>";
-					echo "<img src='".$row["imagen"]."' class='img-responsive' style='width:80%'></a></div>";
+					echo "<a href='dibujar_producto.php?id_producto=".$row["id_producto"]."'><img src='".$row["imagen"]."' class='img-responsive' style='width:80%'></a></div>";
 				}
 				elseif($contador == 4) {
 					$contador = 1;
 					echo "</div><div class='row text-center'>";
 					echo "<div class='col-lg-3 col-md-3 col-xs-12 col-sm-12' id='margenAbajo'>";
 					echo "<p class='text-left'><label>".$row["nombre"]."</label></p>";
-					echo "<img src='".$row["imagen"]."' class='img-responsive' style='width:80%'></a></div>";
+					echo "<a href='dibujar_producto.php?id_producto=".$row["id_producto"]."'><img src='".$row["imagen"]."' class='img-responsive' style='width:80%'></a></div>";
 				}
 				else {
 					$contador++;
 					echo "<div class='col-lg-3 col-md-3 col-xs-12 col-sm-12' id='margenAbajo'>";
 					echo "<p class='text-left'><label>".$row["nombre"]."</label></p>";
-					echo "<img src='".$row["imagen"]."' class='img-responsive' style='width:80%'></a></div>";
+					echo "<a href='dibujar_producto.php?id_producto=".$row["id_producto"]."'><img src='".$row["imagen"]."' class='img-responsive' style='width:80%'></a></div>";
 				}
 			}
 			if($contenido == 0) {
