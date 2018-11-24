@@ -71,8 +71,21 @@
 				</ul>
 			</div>
 			<div class="col-md-2 col-lg-2 col-xs-12 col-sm-12">
-				<button type="button" id="margenSuperiorBoton" class="btn btn-default btn-block"><h5><strong>Proponer Trueque</strong></h5></button>
-				<button type="button" id="margenSuperiorBoton" class="btn btn-default btn-block"><h5><strong>Ver Cartera</strong></h5></button>
+				<?php
+					if(isset($noBotones)) {
+						echo "<div id='ccuenta'><p class='text-center'><span class='fas fa-eye-slash fa-3x'></span></p><h3><p class='text-center'>Producto Privado.</p></h3></div>";
+						if (isset($esPropio)) {
+							echo "<div id='ccuenta'><p class='text-center'><span class='fas fa-hand-point-up fa-3x'></span></p><h3><p class='text-center'>Este producto es tuyo.</p></h3></div>";
+						}
+					}
+					elseif (isset($esPropio)) {
+						echo "<div id='ccuenta'><p class='text-center'><span class='fas fa-hand-point-up fa-3x'></span></p><h3><p class='text-center'>Este producto es tuyo.</p></h3></div>";
+					}
+					else {
+						echo "<button type='button' id='margenSuperiorBoton' class='btn btn-default btn-block' data-toggle='modal' data-target='#truequeModal'><h5><strong>Proponer Trueque</strong></h5></button>";
+						echo "<button type='button' id='margenSuperiorBoton' class='btn btn-default btn-block'><h5><strong>Ver Cartera</strong></h5></button>";
+					}
+				?>
 			</div>
 		</div>
 		<div class="row">
@@ -163,5 +176,44 @@
 			</div>
 		</div>
 	</div>
+
+	<div id="truequeModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" class="modal-title">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="text-center">Proponer Trueque</h2>
+                </div>
+                <div class="modal-body">
+                	<div>
+                		<?php
+                			echo "<p class='text-center'><label>".$producto_nombre."</label></p>";
+							echo "<img src='".$producto_imagen."' class='img-responsive' style='width:50%'></img>";
+						?>
+                	</div>
+                	<?php
+                		echo "<form action='propuesta.php?id_producto_receptor=".$producto_id."' method='post'>";
+                	?>
+                    <!--<form action="propuesta.php?" method="post">-->
+                        <div class="form-group">
+                            <label>Elige el producto que vas a ofrecer:</label>
+                            <?php
+                            	echo "<select name='productosPropios' class='form-control'>";
+                            	$productos_propios = "SELECT * FROM producto WHERE id_usuario = '".$_SESSION["identificador"]."'";
+
+                            	foreach($con->query($productos_propios) as $row4) {
+                            		echo "<option>".$row4["nombre"]."</option>";
+                            	}
+                            	echo "</select>";
+                            ?>
+                        </div>
+                        <div class="form-group">
+                            <p class="text-center"><button type="submit" name="proponerTrueque" class="btn btn-default" id="boton-navbar"><strong>Proponer</strong></button></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

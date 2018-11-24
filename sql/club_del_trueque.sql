@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2018 a las 20:09:41
+-- Tiempo de generación: 24-11-2018 a las 05:35:10
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.1.23
 
@@ -211,7 +211,7 @@ INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `intereses`, `im
 CREATE TABLE `propuesta` (
   `id_propuesta` int(11) NOT NULL,
   `fecha_inicio` date NOT NULL,
-  `fecha_finalizada` date NOT NULL,
+  `fecha_finalizada` date DEFAULT NULL,
   `id_estado_propuesta` int(11) NOT NULL,
   `id_usuario_emisor` int(11) NOT NULL,
   `id_usuario_receptor` int(11) NOT NULL
@@ -419,7 +419,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `propuesta`
 --
 ALTER TABLE `propuesta`
-  MODIFY `id_propuesta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_propuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -442,7 +442,8 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `calificacion`
   ADD CONSTRAINT `calificacion_ibfk_1` FOREIGN KEY (`id_usuario_calificador`) REFERENCES `usuario` (`id_usuario`),
-  ADD CONSTRAINT `calificacion_ibfk_2` FOREIGN KEY (`id_usuario_calificado`) REFERENCES `usuario` (`id_usuario`);
+  ADD CONSTRAINT `calificacion_ibfk_2` FOREIGN KEY (`id_usuario_calificado`) REFERENCES `usuario` (`id_usuario`),
+  ADD CONSTRAINT `calificacion_ibfk_3` FOREIGN KEY (`id_propuesta`) REFERENCES `propuesta` (`id_propuesta`);
 
 --
 -- Filtros para la tabla `permisos_rol`
@@ -464,7 +465,6 @@ ALTER TABLE `producto`
 --
 ALTER TABLE `propuesta`
   ADD CONSTRAINT `propuesta_ibfk_1` FOREIGN KEY (`id_estado_propuesta`) REFERENCES `estado_propuesta` (`id_estado_propuesta`),
-  ADD CONSTRAINT `propuesta_ibfk_2` FOREIGN KEY (`id_propuesta`) REFERENCES `calificacion` (`id_propuesta`),
   ADD CONSTRAINT `propuesta_ibfk_3` FOREIGN KEY (`id_usuario_emisor`) REFERENCES `usuario` (`id_usuario`),
   ADD CONSTRAINT `propuesta_ibfk_4` FOREIGN KEY (`id_usuario_receptor`) REFERENCES `usuario` (`id_usuario`);
 

@@ -11,6 +11,7 @@
 
 	if($array_existe->rowCount() == 1) {
 		foreach($array_existe as $row) {
+			$producto_id = $row["id_producto"];
 			$producto_nombre = $row["nombre"];
 			$producto_descripcion = $row["descripcion"];
 			$producto_intereses = $row["intereses"];
@@ -21,10 +22,18 @@
 		}
 
 		if($producto_id_estado == 2 && $producto_id_usuario == $_SESSION["identificador"]) {
+			$noBotones = 1;
+			$esPropio = 1;
 			include "producto.php";
 		}
 		elseif($producto_id_estado == 1) {
-			include "producto.php";
+			if($producto_id_usuario == $_SESSION["identificador"]) {
+				$esPropio = 1;
+				include "producto.php";
+			}
+			else {
+				include "producto.php";
+			}
 		}
 		else {
 			header('Location: index.php');
