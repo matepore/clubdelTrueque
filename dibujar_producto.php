@@ -20,23 +20,28 @@
 			$producto_id_usuario = $row["id_usuario"];
 			$producto_id_categoria = $row["id_categoria"];
 		}
-
-		if($producto_id_estado == 2 && $producto_id_usuario == $_SESSION["identificador"]) {
-			$noBotones = 1;
-			$esPropio = 1;
-			include "producto.php";
-		}
-		elseif($producto_id_estado == 1) {
-			if($producto_id_usuario == $_SESSION["identificador"]) {
+		if(isset($_SESSION["identificador"])) {
+			if($producto_id_estado == 2 && $producto_id_usuario == $_SESSION["identificador"]) {
+				$noBotones = 1;
 				$esPropio = 1;
 				include "producto.php";
 			}
+			elseif($producto_id_estado == 1) {
+				if($producto_id_usuario == $_SESSION["identificador"]) {
+					$esPropio = 1;
+					include "producto.php";
+				}
+				else {
+					include "producto.php";
+				}
+			}
 			else {
-				include "producto.php";
+				header('Location: index.php');
 			}
 		}
 		else {
-			header('Location: index.php');
+			$noIniciado = 1;
+			include "producto.php";
 		}
 	}
 	else {
