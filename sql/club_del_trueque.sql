@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2018 a las 05:35:10
+-- Tiempo de generación: 26-11-2018 a las 05:51:17
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.1.23
 
@@ -217,6 +217,13 @@ CREATE TABLE `propuesta` (
   `id_usuario_receptor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Volcado de datos para la tabla `propuesta`
+--
+
+INSERT INTO `propuesta` (`id_propuesta`, `fecha_inicio`, `fecha_finalizada`, `id_estado_propuesta`, `id_usuario_emisor`, `id_usuario_receptor`) VALUES
+(1, '2018-11-26', NULL, 1, 8, 11);
+
 -- --------------------------------------------------------
 
 --
@@ -227,6 +234,14 @@ CREATE TABLE `propuestas_productos` (
   `id_propuesta` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `propuestas_productos`
+--
+
+INSERT INTO `propuestas_productos` (`id_propuesta`, `id_producto`) VALUES
+(1, 2),
+(1, 11);
 
 -- --------------------------------------------------------
 
@@ -419,7 +434,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `propuesta`
 --
 ALTER TABLE `propuesta`
-  MODIFY `id_propuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_propuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`

@@ -26,7 +26,7 @@
 		    	<li><a id="navLetra" href="#"><span class="fas fa-bell fa-2x"></span></a></li>
 		    	<li>
 		    		<?php
-		    			echo "<a href='#' id='navLetra'>".$_SESSION["nombre"]." ".$_SESSION["apellido"]." "."<img src='".$_SESSION["avatar"]."' style='width:30px'></a>";
+		    			echo "<a href='dibujar_perfil.php' id='navLetra'>".$_SESSION["nombre"]." ".$_SESSION["apellido"]." "."<img src='".$_SESSION["avatar"]."' style='width:30px'></a>";
 		    		?>
 		    	</li>
 			    <li class="dropdown">

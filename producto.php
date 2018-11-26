@@ -100,6 +100,52 @@
 				?>
 			</div>
 		</div>
+		<?php
+			if(isset($esPropio)) {
+				echo "<div class='row'><h1 class='bg-success'><p class='text-center'>Propuestas Pendientes</p></h1>";
+
+				$hayPropuestas = "SELECT * FROM propuestas_productos WHERE id_producto = '".$id."'";
+				if (($con->query($hayPropuestas))->rowCount() > 0) {
+					foreach($con->query($hayPropuestas) as $columna4) {
+						echo "<div class='col-md-8 col-lg-8 col-xs-12 col-sm-12'>";
+						$laPropuesta = $columna4["id_propuesta"];
+						$soyReceptor = "SELECT * FROM propuesta WHERE id_propuesta = '".$laPropuesta."' AND id_usuario_receptor = '".$_SESSION["identificador"]."'";
+						if (($con->query($soyReceptor))->rowCount() > 0) {
+							foreach($con->query($soyReceptor) as $columna5) {
+								echo "<div class='media' id='margenAbajo'><div class='media-left'>";
+								$usuarioEmisor = "SELECT * FROM usuario WHERE id_usuario = '".$columna5["id_usuario_emisor"]."'";
+
+								foreach($con->query($usuarioEmisor) as $columna6) {
+									$nombreyApellido = "".$columna6["nombre"]." ".$columna6["apellido"]."";
+									$imagen_usuario = $columna6["avatar"];
+								}
+
+								echo "<img src='".$imagen_usuario."' class='media-object' style='width:60px'></div>";
+								echo "<div class='media-body'><h4 class='media-heading'><strong>".$nombreyApellido."</strong></h4>";
+								
+								$productoOfrecido = "SELECT * FROM propuestas_productos WHERE id_propuesta = '".$laPropuesta."' AND id_producto NOT LIKE '".$id."'";
+								foreach($con->query($productoOfrecido) as $columna7) {
+									$productoOfrecido_id = $columna7["id_producto"];
+								}
+								$productoEmisor = "SELECT * FROM producto WHERE id_producto = '".$productoOfrecido_id."'";
+								foreach($con->query($productoEmisor) as $columna8) {
+									$productoEmisor_nombre = $columna8["nombre"];
+									$productoEmisor_imagen = $columna8["imagen"];
+								}
+								echo "<p>Te ofreció <strong><a href='dibujar_producto.php?id_producto=".$productoOfrecido_id."'>".$productoEmisor_nombre."</a></strong></p></div></div></div>";
+
+								echo "<div class='col-md-4 col-lg-4 col-xs-12 col-sm-12' id='margenAbajo'>";
+								echo "<a href='aceptar_oferta.php?id_producto_ofrecido=".$productoOfrecido_id."'><button type='button' class='btn btn-success'><span class='fas fa-check'> Aceptar</span></button></a>";
+								echo "<a><button type='button' class='btn btn-danger'><span class='fas fa-ban'> Rechazar</span></button></a>";
+								echo "</div>";
+							}
+						}
+					}
+				}
+				echo "</div>";
+			}
+		?>
+		<div class="row"><div class="col-md-12 col-lg-12 col-xs-12 col-sm-12"></div></div>
 		<div class="row">
 			<div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
 				<h1 class="bg-success"><p class="text-center">Propuestas Rechazadas</p></h1>
