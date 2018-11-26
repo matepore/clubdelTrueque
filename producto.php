@@ -137,7 +137,7 @@
 
 								echo "<div class='col-md-4 col-lg-4 col-xs-12 col-sm-12' id='margenAbajo'>";
 								echo "<a href='aceptar_oferta.php?id_propuesta=".$laPropuesta."&id_producto=".$productoReceptor."'><button type='button' class='btn btn-success'><span class='fas fa-check'> Aceptar</span></button></a>";
-								echo "<a><button type='button' class='btn btn-danger'><span class='fas fa-ban'> Rechazar</span></button></a>";
+								echo "<a href='rechazar_oferta.php?id_propuesta=".$laPropuesta."&id_producto=".$productoReceptor."'><button type='button' class='btn btn-danger'><span class='fas fa-ban'> Rechazar</span></button></a>";
 								echo "</div>";
 							}
 						}
@@ -249,7 +249,7 @@
                             <label>Elige el producto que vas a ofrecer:</label>
                             <?php
                             	echo "<select name='productosPropios' class='form-control'>";
-                            	$productos_propios = "SELECT * FROM producto WHERE id_usuario = '".$_SESSION["identificador"]."'";
+                            	$productos_propios = "SELECT * FROM producto WHERE id_usuario = '".$_SESSION["identificador"]."' AND id_estado_producto NOT LIKE '3' AND id_estado_producto NOT LIKE '4'";
 
                             	foreach($con->query($productos_propios) as $row4) {
                             		echo "<option>".$row4["nombre"]."</option>";
