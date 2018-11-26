@@ -109,7 +109,7 @@
 					foreach($con->query($hayPropuestas) as $columna4) {
 						echo "<div class='col-md-8 col-lg-8 col-xs-12 col-sm-12'>";
 						$laPropuesta = $columna4["id_propuesta"];
-						$soyReceptor = "SELECT * FROM propuesta WHERE id_propuesta = '".$laPropuesta."' AND id_usuario_receptor = '".$_SESSION["identificador"]."'";
+						$soyReceptor = "SELECT * FROM propuesta WHERE id_propuesta = '".$laPropuesta."' AND id_usuario_receptor = '".$_SESSION["identificador"]."' AND id_estado_propuesta = '1'";
 						if (($con->query($soyReceptor))->rowCount() > 0) {
 							foreach($con->query($soyReceptor) as $columna5) {
 								echo "<div class='media' id='margenAbajo'><div class='media-left'>";
@@ -132,10 +132,11 @@
 									$productoEmisor_nombre = $columna8["nombre"];
 									$productoEmisor_imagen = $columna8["imagen"];
 								}
+								$productoReceptor = $_GET["id_producto"];
 								echo "<p>Te ofreció <strong><a href='dibujar_producto.php?id_producto=".$productoOfrecido_id."'>".$productoEmisor_nombre."</a></strong></p></div></div></div>";
 
 								echo "<div class='col-md-4 col-lg-4 col-xs-12 col-sm-12' id='margenAbajo'>";
-								echo "<a href='aceptar_oferta.php?id_producto_ofrecido=".$productoOfrecido_id."'><button type='button' class='btn btn-success'><span class='fas fa-check'> Aceptar</span></button></a>";
+								echo "<a href='aceptar_oferta.php?id_propuesta=".$laPropuesta."&id_producto=".$productoReceptor."'><button type='button' class='btn btn-success'><span class='fas fa-check'> Aceptar</span></button></a>";
 								echo "<a><button type='button' class='btn btn-danger'><span class='fas fa-ban'> Rechazar</span></button></a>";
 								echo "</div>";
 							}
@@ -244,7 +245,6 @@
                 	<?php
                 		echo "<form action='propuesta.php?id_producto_receptor=".$producto_id."' method='post'>";
                 	?>
-                    <!--<form action="propuesta.php?" method="post">-->
                         <div class="form-group">
                             <label>Elige el producto que vas a ofrecer:</label>
                             <?php

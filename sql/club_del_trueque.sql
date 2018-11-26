@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2018 a las 05:51:17
+-- Tiempo de generación: 26-11-2018 a las 06:50:58
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.1.23
 
@@ -200,7 +200,9 @@ INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `intereses`, `im
 (11, 'Heladera Patrick', 'Es una heladera patrick del 2000 frio directo.', 'Acepto freezers portables.', 'https://http2.mlstatic.com/heladera-patrick-no-frost-D_NQ_NP_892321-MLA20738124980_052016-F.jpg', 1, 1, 11),
 (12, 'Zapato Guante negro', 'Los clÃƒÂ¡sicos zapatos guante de color negro serie 31043.', 'Acepto chalecos de traje o camisas.', 'https://home.ripley.cl/store/Attachment/WOP/D311/2000323308874/2000323308874_2.jpg', 2, 5, 11),
 (13, 'Bicicleta reclinada Hi Bent', 'Es la bicicleta reclinada Hi Bent MRacer Pro Travel en color blanco y amarillo.', 'Acepto cualquier cosa de la categorÃƒÂ­a informÃƒÂ¡tica.', 'https://www.hi-bent.com.ar/wp-content/uploads/2018/02/Bicicleta-Reclinada-Hi-Bent-MRacer-Pro-Travel-a-min.jpg', 1, 6, 11),
-(14, 'Auriculares OMORC', 'Auriculares OMORC serie SX500, vienen color negro y con repuesto de cable.', 'Quiero un celular, escucho ofertas.', 'https://images-na.ssl-images-amazon.com/images/I/71dBCktsBgL._SX569_.jpg', 1, 3, 11);
+(14, 'Auriculares OMORC', 'Auriculares OMORC serie SX500, vienen color negro y con repuesto de cable.', 'Quiero un celular, escucho ofertas.', 'https://images-na.ssl-images-amazon.com/images/I/71dBCktsBgL._SX569_.jpg', 1, 3, 11),
+(15, 'Lavarropas AutomÃƒÂ¡tico Samsung Carga Frontal 7 Kg', 'Producto: Lavarropas AutomÃƒÂ¡tico Samsung 7 kg Carga Frontal WF1702 Plata\r\nModelo: WW70M2WEUU\r\nEcobubble: resultados excelentes aÃƒÂºn con agua frÃƒÂ­a\r\nTambor Diamante: protege tus prendas delicadas \r\nLavado rÃƒÂ¡pido 15', 'Lo cambio por heladeras.', 'https://http2.mlstatic.com/lavarropas-automatico-samsung-wf1702-blanco-7-kg-1200rpm-D_NQ_NP_874324-MLA25904140253_082017-F.jpg', 1, 4, 9),
+(16, 'Smart Tv Lg 32 32lj600b Hd Hdmi', 'TV LED 32 pulgadas LG \r\nHD / SMART / WEB OS3.0\r\nCÃƒÂ³digo: 32LJ600B', 'Lo cambio por electrodomesticos.', 'https://www.lg.com/ar/images/televisores/md05860539/gallery/32LJ600B_A_Zoom05_110817.jpg', 1, 3, 10);
 
 -- --------------------------------------------------------
 
@@ -222,7 +224,9 @@ CREATE TABLE `propuesta` (
 --
 
 INSERT INTO `propuesta` (`id_propuesta`, `fecha_inicio`, `fecha_finalizada`, `id_estado_propuesta`, `id_usuario_emisor`, `id_usuario_receptor`) VALUES
-(1, '2018-11-26', NULL, 1, 8, 11);
+(1, '2018-11-26', NULL, 1, 8, 11),
+(2, '2018-11-26', NULL, 1, 9, 11),
+(3, '2018-11-26', NULL, 1, 10, 11);
 
 -- --------------------------------------------------------
 
@@ -241,7 +245,11 @@ CREATE TABLE `propuestas_productos` (
 
 INSERT INTO `propuestas_productos` (`id_propuesta`, `id_producto`) VALUES
 (1, 2),
-(1, 11);
+(1, 11),
+(2, 15),
+(2, 11),
+(3, 16),
+(3, 11);
 
 -- --------------------------------------------------------
 
@@ -298,8 +306,8 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id_usuario`, `nombre`, `apellido`, `email`, `password`, `fecha_nacimiento`, `telefono`, `provincia`, `localidad`, `avatar`) VALUES
 (8, 'Mateo', 'Calcagno', 'calcagno.mateo@gmail.com', 'password', '1995-02-23', 1131191742, 'Buenos Aires', 'Ezeiza', 'https://cdn1.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png'),
-(9, 'nombre', 'apellido', 'mail@ejemplo.com', '1234', '2000-01-01', 1112345678, 'Rio negro', 'Mampo', 'asfaage.jpg'),
-(10, 'Alejandro', 'Arrua', 'alejandro.arrua@gmail.com', '123456', '1994-04-05', 1158735832, 'Buenos Aires', 'Ezeiza', 'lazlopanaflex.jpg'),
+(9, 'nombre', 'apellido', 'mail@ejemplo.com', '1234', '2000-01-01', 1112345678, 'Rio negro', 'Mampo', 'https://a21.t26.net/taringa/avatares/8/1/4/8/2/6/nicolashan1997/B5A.jpg'),
+(10, 'Alejandro', 'Arrua', 'alejandro.arrua@gmail.com', '123456', '1994-04-05', 1158735832, 'Buenos Aires', 'Ezeiza', 'https://a20.t26.net/taringa/avatares/5/B/B/4/9/A/buyichi/432.jpg'),
 (11, 'Marcelo', 'Leucca', 'marleucca@yahoo.com.ar', 'password', '1989-09-04', 1113238287, 'San Luis', 'Merlo', 'https://a20.t26.net/taringa/avatares/F/3/B/F/A/D/BieSlow/5EC.jpg');
 
 --
@@ -428,13 +436,13 @@ ALTER TABLE `permisos`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `propuesta`
 --
 ALTER TABLE `propuesta`
-  MODIFY `id_propuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_propuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
