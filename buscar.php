@@ -38,7 +38,7 @@
 
 					echo "<div class='col-md-4 col-lg-4 col-xs-12 col-sm-12'>";
 
-					echo "<img src='".$row["imagen"]."' class='img-responsive' style='width:100%'></div>";
+					echo "<a href='dibujar_producto.php?id_producto=".$row["id_producto"]."'><img src='".$row["imagen"]."' class='img-responsive' style='width:100%'></div></a>";
 
 					echo "<div class='col-md-8 col-lg-8 col-xs-12 col-sm-12'>";
 

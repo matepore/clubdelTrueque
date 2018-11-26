@@ -39,7 +39,7 @@
 						<span class="fas fa-bars fa-2x"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="#"><span class="fas fa-search"></span> Buscar</a></li>
+						<li><a href="buscar.php?query=' '"><span class="fas fa-search"></span> Buscar</a></li>
 						<li><a href="persistir_usuario.php"><span class="fas fa-user-plus"></span> Registrarse</a></li>
 						<li><a href="ingresar.php"><span class="fas fa-user-check"></span> Iniciar Sesión</a></li>
 					</ul>

@@ -82,8 +82,8 @@
 						echo "<div id='ccuenta'><p class='text-center'><span class='fas fa-hand-point-up fa-3x'></span></p><h3><p class='text-center'>Este producto es tuyo.</p></h3></div>";
 					}
 					elseif(isset($noIniciado)) {
-						echo "<button type='button' id='margenSuperiorBoton' class='btn btn-default btn-block'><h5><strong><a href='ingresar.php'>Proponer Trueque</a></strong></h5></button>";
-						echo "<button type='button' id='margenSuperiorBoton' class='btn btn-default btn-block'><h5><strong><a href='ingresar.php'>Ver Cartera</a></strong></h5></button>";
+						echo "<a href='ingresar.php'><button type='button' id='margenSuperiorBoton' class='btn btn-default btn-block'><h5><strong>Proponer Trueque</strong></h5></button></a>";
+						echo "<a href='ingresar.php'><button type='button' id='margenSuperiorBoton' class='btn btn-default btn-block'><h5><strong>Ver Cartera</strong></h5></button></a>";
 					}
 					else {
 						echo "<button type='button' id='margenSuperiorBoton' class='btn btn-default btn-block' data-toggle='modal' data-target='#truequeModal'><h5><strong>Proponer Trueque</strong></h5></button>";
