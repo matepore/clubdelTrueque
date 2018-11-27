@@ -100,93 +100,101 @@
 				?>
 			</div>
 		</div>
-		<?php
-			if(isset($esPropio)) {
-				echo "<div class='row'><h1 class='bg-success'><p class='text-center'>Propuestas Pendientes</p></h1>";
+		<div class='row'>
+			<?php
+				if(isset($esPropio)) {
+					echo "<div class='col-md-12 col-lg-12 col-xs-12 col-sm-12'>";
+					echo "<h1 class='bg-success'><p class='text-center'>Propuestas Pendientes</p></h1>";
+					echo "</div>";
+				}
+			?>
+			<div class='col-md-8 col-lg-8 col-xs-12 col-sm-12'>
+				<?php
+					if(isset($esPropio)) {
+						$hayPropuestas = "SELECT * FROM propuestas_productos WHERE id_producto = '".$id."'";
+						if (($con->query($hayPropuestas))->rowCount() > 0) {
+							foreach($con->query($hayPropuestas) as $columna4) {
+								$laPropuesta = $columna4["id_propuesta"];
+								$soyReceptor = "SELECT * FROM propuesta WHERE id_propuesta = '".$laPropuesta."' AND id_usuario_receptor = '".$_SESSION["identificador"]."' AND id_estado_propuesta = '1'";
+								if (($con->query($soyReceptor))->rowCount() > 0) {
+									foreach($con->query($soyReceptor) as $columna5) {
+										echo "<div class='media' id='margenAbajo'><div class='media-left'>";
+										$usuarioEmisor = "SELECT * FROM usuario WHERE id_usuario = '".$columna5["id_usuario_emisor"]."'";
 
-				$hayPropuestas = "SELECT * FROM propuestas_productos WHERE id_producto = '".$id."'";
-				if (($con->query($hayPropuestas))->rowCount() > 0) {
-					foreach($con->query($hayPropuestas) as $columna4) {
-						echo "<div class='col-md-8 col-lg-8 col-xs-12 col-sm-12'>";
-						$laPropuesta = $columna4["id_propuesta"];
-						$soyReceptor = "SELECT * FROM propuesta WHERE id_propuesta = '".$laPropuesta."' AND id_usuario_receptor = '".$_SESSION["identificador"]."' AND id_estado_propuesta = '1'";
-						if (($con->query($soyReceptor))->rowCount() > 0) {
-							foreach($con->query($soyReceptor) as $columna5) {
-								echo "<div class='media' id='margenAbajo'><div class='media-left'>";
-								$usuarioEmisor = "SELECT * FROM usuario WHERE id_usuario = '".$columna5["id_usuario_emisor"]."'";
+										foreach($con->query($usuarioEmisor) as $columna6) {
+											$nombreyApellido = "".$columna6["nombre"]." ".$columna6["apellido"]."";
+											$imagen_usuario = $columna6["avatar"];
+										}
 
-								foreach($con->query($usuarioEmisor) as $columna6) {
-									$nombreyApellido = "".$columna6["nombre"]." ".$columna6["apellido"]."";
-									$imagen_usuario = $columna6["avatar"];
+										echo "<img src='".$imagen_usuario."' class='media-object' style='width:60px'></div>";
+										echo "<div class='media-body'><h4 class='media-heading'><strong>".$nombreyApellido."</strong></h4>";
+										
+										$productoOfrecido = "SELECT * FROM propuestas_productos WHERE id_propuesta = '".$laPropuesta."' AND id_producto NOT LIKE '".$id."'";
+										foreach($con->query($productoOfrecido) as $columna7) {
+											$productoOfrecido_id = $columna7["id_producto"];
+										}
+										$productoEmisor = "SELECT * FROM producto WHERE id_producto = '".$productoOfrecido_id."'";
+										foreach($con->query($productoEmisor) as $columna8) {
+											$productoEmisor_nombre = $columna8["nombre"];
+											$productoEmisor_imagen = $columna8["imagen"];
+										}
+										$productoReceptor = $_GET["id_producto"];
+										echo "<p>Te ofreció <strong><a href='dibujar_producto.php?id_producto=".$productoOfrecido_id."'>".$productoEmisor_nombre."</a></strong></p></div></div></div>";
+
+										echo "<div class='col-md-4 col-lg-4 col-xs-12 col-sm-12' id='margenAbajo'>";
+										echo "<a href='aceptar_oferta.php?id_propuesta=".$laPropuesta."&id_producto=".$productoReceptor."'><button type='button' class='btn btn-success'><span class='fas fa-check'> Aceptar</span></button></a>";
+										echo "<a href='rechazar_oferta.php?id_propuesta=".$laPropuesta."&id_producto=".$productoReceptor."'><button type='button' class='btn btn-danger'><span class='fas fa-ban'> Rechazar</span></button></a>";
+										echo "</div>";
+									}
 								}
-
-								echo "<img src='".$imagen_usuario."' class='media-object' style='width:60px'></div>";
-								echo "<div class='media-body'><h4 class='media-heading'><strong>".$nombreyApellido."</strong></h4>";
-								
-								$productoOfrecido = "SELECT * FROM propuestas_productos WHERE id_propuesta = '".$laPropuesta."' AND id_producto NOT LIKE '".$id."'";
-								foreach($con->query($productoOfrecido) as $columna7) {
-									$productoOfrecido_id = $columna7["id_producto"];
-								}
-								$productoEmisor = "SELECT * FROM producto WHERE id_producto = '".$productoOfrecido_id."'";
-								foreach($con->query($productoEmisor) as $columna8) {
-									$productoEmisor_nombre = $columna8["nombre"];
-									$productoEmisor_imagen = $columna8["imagen"];
-								}
-								$productoReceptor = $_GET["id_producto"];
-								echo "<p>Te ofreció <strong><a href='dibujar_producto.php?id_producto=".$productoOfrecido_id."'>".$productoEmisor_nombre."</a></strong></p></div></div></div>";
-
-								echo "<div class='col-md-4 col-lg-4 col-xs-12 col-sm-12' id='margenAbajo'>";
-								echo "<a href='aceptar_oferta.php?id_propuesta=".$laPropuesta."&id_producto=".$productoReceptor."'><button type='button' class='btn btn-success'><span class='fas fa-check'> Aceptar</span></button></a>";
-								echo "<a href='rechazar_oferta.php?id_propuesta=".$laPropuesta."&id_producto=".$productoReceptor."'><button type='button' class='btn btn-danger'><span class='fas fa-ban'> Rechazar</span></button></a>";
-								echo "</div>";
 							}
 						}
 					}
-				}
-				echo "</div>";
-			}
-		?>
-		<div class="row"><div class="col-md-12 col-lg-12 col-xs-12 col-sm-12"></div></div>
+				?>
+			</div>
+		</div>
+		
 		<div class="row">
 			<div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
 				<h1 class="bg-success"><p class="text-center">Propuestas Rechazadas</p></h1>
-				<!--
-				<div class="well">
-					<div class="media">
-						<div class="media-left media-top">
-							<a href="#"><img src="img/usuario/usuario1.jpg" class="media-object" style="width:60px"></a>
-						</div>
-						<div class="media-body">
-							<a href="#">
-								<h3 class="media-heading">
-									<kbd><strong>Pablo Cresmani</strong></kbd>
-								</h3>
-							</a>
-							<h4><strong>Ofreció</strong></h4>
-							<p><strong><code>Chop para Cerveza</code></strong></p>
-							<br>
-							<p class="text-right"><span class="fas fa-times" id="rechazado"></span> Trueque rechazado.</p>
-						</div>
-					</div>
-				</div>
-				<div class="well">
-					<div class="media">
-						<div class="media-left media-top">
-							<a href="#"><img src="img/usuario/usuario2.jpg" class="media-object" style="width:60px"></a>
-						</div>
-						<div class="media-body">
-							<a href="#">
-								<h3 class="media-heading">
-									<kbd><strong>Nahuel Cabrera</strong></kbd>
-								</h3>
-							</a>
-							<h4><strong>Ofreció</strong></h4>
-							<p><strong><code>Remera de los Ramones</code></strong></p>
-							<br>
-							<p class="text-right"><span class="fas fa-times" id="rechazado"></span> Trueque rechazado.</p>
-						</div>
-					</div>
-				</div>-->
+				<?php
+					$producReceptor = $_GET["id_producto"];
+					$obtenerUsuario_producReceptor = "SELECT * FROM producto WHERE id_producto ='".$producReceptor."'";
+					foreach($con->query($obtenerUsuario_producReceptor) as $columna9) {
+						$idUsuario_producReceptor = $columna9["id_usuario"];
+					}
+					$propueRechazadas_Ureceptor = "SELECT * FROM propuesta WHERE id_usuario_receptor = '".$idUsuario_producReceptor."' AND id_estado_propuesta = '2'";
+					foreach($con->query($propueRechazadas_Ureceptor) as $columna10) {
+						$propueRechazada_id = $columna10["id_propuesta"];
+						$propueRechazada_usuarioEmisor = $columna10["id_usuario_emisor"];
+
+						$usuarioEmisor_rechazado = "SELECT * FROM usuario WHERE id_usuario = '".$propueRechazada_usuarioEmisor."'";
+						foreach($con->query($usuarioEmisor_rechazado) as $columna11) {
+							$usuarioEmisor_nombreyApellido = "".$columna11["nombre"]." ".$columna11["apellido"]."";
+							$usuarioEmisor_imagen = $columna11["avatar"];
+						}
+
+						$propuesta_productos_idProducto = "SELECT * FROM propuestas_productos WHERE id_propuesta = '".$propueRechazada_id."' AND id_producto NOT LIKE '".$producReceptor."'";
+						foreach($con->query($propuesta_productos_idProducto) as $columna12) {
+							$producEmisor_id = $columna12["id_producto"];
+						}
+						$producEmisor_traer = "SELECT * FROM producto WHERE id_producto = '".$producEmisor_id."'";
+
+						foreach($con->query($producEmisor_traer) as $columna13) {
+							$producEmisor_nombre = $columna13["nombre"];
+						}
+
+						echo "<div class='well'><div class='media'><div class='media-left media-top'>";
+						echo "<img src='".$usuarioEmisor_imagen."' class='media-object' style='width:60px'></div>";
+						echo "<div class='media-body'><h3 class='media-heading'><kbd><strong>".$usuarioEmisor_nombreyApellido."</strong></kbd></h3>";
+						echo "<p>Ofreció <strong><a href='dibujar_producto.php?id_producto=".$producEmisor_id."'>".$producEmisor_nombre."</a></strong></p>";
+						echo "<br><p class='text-right'><span class='fas fa-times' id='rechazado'></span> Trueque rechazado.</p></div></div></div>";
+
+					}
+
+
+				?>
+				
 			</div>
 			<div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
 				<h1 class="bg-success"><p class="text-center">Comentarios</p></h1>

@@ -20,8 +20,8 @@
     foreach($con->query($propuestas_productos_restantes) as $row2) {
     	$id_producto_rechazado = $row2["id_producto"];
     	$id_propuesta_rechazado = $row2["id_propuesta"];
-    	$coso = "UPDATE propuesta SET id_estado_propuesta = '2' WHERE id_propuesta = '".$id_propuesta_rechazado."'";
-    	$con->query($coso);
+    	$rechazar_propuesta = "UPDATE propuesta SET id_estado_propuesta = '2' WHERE id_propuesta = '".$id_propuesta_rechazado."'";
+    	$con->query($rechazar_propuesta);
     }
 
     header('Location: index.php');
