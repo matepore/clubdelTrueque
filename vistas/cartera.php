@@ -41,7 +41,14 @@
                 else {
                     echo "<p class='text-right'><kbd id='colorKBDA'><span class='fas fa-eye-slash'></span> Privado</kbd></p>";
                 }
+                echo "<div class='hidden-xs hidden-sm btn-group btn-group-justified'>";
+                echo "<a href='eliminar_producto.php?id_producto=".$row["id_producto"]."' class='btn btn-danger'><span class='fas fa-ban'> Eliminar</span></a>";
+                echo "<a href='cambiar_producto_privacidad.php?id_producto=".$row["id_producto"]."&id_estado_producto=".$row["id_estado_producto"]."' class='btn btn-default' id='boton-alternativo' name='cambiarPrivacidad'><span class='fas fa-eye'> Cambiar privacidad</span></a>";
+                echo "</div>";
+                echo "<div class='hidden-md hidden-lg'>";
+                echo "<a href='eliminar_producto.php?id_producto=".$row["id_producto"]."'><button type='button' class='btn btn-danger btn-block' name='cambiarPrivacidad'><span class='fas fa-ban'> Eliminar</span></button></a>";
                 echo "<a href='cambiar_producto_privacidad.php?id_producto=".$row["id_producto"]."&id_estado_producto=".$row["id_estado_producto"]."'><button type='button' class='btn btn-default btn-block' id='boton-alternativo' name='cambiarPrivacidad'><span class='fas fa-eye'> Cambiar privacidad</span></button></a>";
+                echo "</div>";
                 echo "</div></div></div>";
             }
             elseif ($contador == 3) {
@@ -57,7 +64,14 @@
                 else {
                     echo "<p class='text-right'><kbd id='colorKBDA'><span class='fas fa-eye-slash'></span> Privado</kbd></p>";
                 }
+                echo "<div class='hidden-xs hidden-sm btn-group btn-group-justified'>";
+                echo "<a href='eliminar_producto.php?id_producto=".$row["id_producto"]."' class='btn btn-danger'><span class='fas fa-ban'> Eliminar</span></a>";
+                echo "<a href='cambiar_producto_privacidad.php?id_producto=".$row["id_producto"]."&id_estado_producto=".$row["id_estado_producto"]."' class='btn btn-default' id='boton-alternativo' name='cambiarPrivacidad'><span class='fas fa-eye'> Cambiar privacidad</span></a>";
+                echo "</div>";
+                echo "<div class='hidden-md hidden-lg'>";
+                echo "<a href='eliminar_producto.php?id_producto=".$row["id_producto"]."'><button type='button' class='btn btn-danger btn-block' name='cambiarPrivacidad'><span class='fas fa-ban'> Eliminar</span></button></a>";
                 echo "<a href='cambiar_producto_privacidad.php?id_producto=".$row["id_producto"]."&id_estado_producto=".$row["id_estado_producto"]."'><button type='button' class='btn btn-default btn-block' id='boton-alternativo' name='cambiarPrivacidad'><span class='fas fa-eye'> Cambiar privacidad</span></button></a>";
+                echo "</div>";
                 echo "</div></div></div>";
             }
             else {
@@ -72,7 +86,14 @@
                 else {
                     echo "<p class='text-right'><kbd id='colorKBDA'><span class='fas fa-eye-slash'></span> Privado</kbd></p>";
                 }
+                echo "<div class='hidden-xs hidden-sm btn-group btn-group-justified'>";
+                echo "<a href='eliminar_producto.php?id_producto=".$row["id_producto"]."' class='btn btn-danger'><span class='fas fa-ban'> Eliminar</span></a>";
+                echo "<a href='cambiar_producto_privacidad.php?id_producto=".$row["id_producto"]."&id_estado_producto=".$row["id_estado_producto"]."' class='btn btn-default' id='boton-alternativo' name='cambiarPrivacidad'><span class='fas fa-eye'> Cambiar privacidad</span></a>";
+                echo "</div>";
+                echo "<div class='hidden-md hidden-lg'>";
+                echo "<a href='eliminar_producto.php?id_producto=".$row["id_producto"]."'><button type='button' class='btn btn-danger btn-block' name='cambiarPrivacidad'><span class='fas fa-ban'> Eliminar</span></button></a>";
                 echo "<a href='cambiar_producto_privacidad.php?id_producto=".$row["id_producto"]."&id_estado_producto=".$row["id_estado_producto"]."'><button type='button' class='btn btn-default btn-block' id='boton-alternativo' name='cambiarPrivacidad'><span class='fas fa-eye'> Cambiar privacidad</span></button></a>";
+                echo "</div>";
                 echo "</div></div></div>";
             }
         }

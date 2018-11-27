@@ -44,7 +44,11 @@
 	    			$id_categoria = 10;
 	    		}
 
-	    		$producto = "INSERT INTO producto (nombre, descripcion, intereses, imagen, id_estado_producto, id_categoria, id_usuario) VALUES ('".utf8_encode($_POST["nombre"])."','".utf8_encode($_POST["descripcion"])."','".utf8_encode($_POST["intereses"])."','".$_POST["imagen"]."','".$estado."','".$id_categoria."','".$_SESSION["identificador"]."')";
+	    		$nombre = htmlspecialchars($_POST["nombre"]);
+	    		$descripcion = htmlspecialchars($_POST["descripcion"]);
+	    		$intereses = htmlspecialchars($_POST["intereses"]);
+
+	    		$producto = "INSERT INTO producto (nombre, descripcion, intereses, imagen, id_estado_producto, id_categoria, id_usuario) VALUES ('".utf8_encode($nombre)."','".utf8_encode($descripcion)."','".utf8_encode($intereses)."','".$_POST["imagen"]."','".$estado."','".$id_categoria."','".$_SESSION["identificador"]."')";
 	    		if(!$con->exec($producto)){
 		        	die("No se ha insertado el registro");
 			    }

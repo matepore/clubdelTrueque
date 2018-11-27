@@ -6,8 +6,10 @@
 
     $id_propuesta = $_GET["id_propuesta"];
     $id_producto_receptor = $_GET["id_producto"];
+    $fecha_fin = date("Y/m/d");
 
-    $aceptar_propuesta = "UPDATE propuesta SET id_estado_propuesta = '4' WHERE id_propuesta = '".$id_propuesta."'";
+
+    $aceptar_propuesta = "UPDATE propuesta SET id_estado_propuesta = '4', fecha_finalizada = '".$fecha_fin."' WHERE id_propuesta = '".$id_propuesta."'";
     $propuestas_productos = "SELECT * FROM propuestas_productos WHERE id_propuesta = '".$id_propuesta."'";
     foreach($con->query($propuestas_productos) as $row) {
     	$producto_id = $row["id_producto"];
