@@ -61,7 +61,7 @@
 					</ul>
 				</li>
 		    	<li class="col-sm-6 col-xs-6"></li>
-		    	<li class="col-sm-3 col-xs-3"><a id="navLetra" href="index.php"><img src="img/logo/logo(30x30).png" class="img-responsive"></a></li>
+		    	<li class="col-sm-3 col-xs-3"><a id="navLetra" href="index.php"><img src="https://i.imgur.com/sZk2g7C.png" class="img-responsive" style="width:30px"></a></li>
 			</ul>
 		</div>
 	</nav>

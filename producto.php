@@ -197,40 +197,62 @@
 			</div>
 			<div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
 				<h1 class="bg-success"><p class="text-center">Comentarios</p></h1>
-				<!--
-				<div class="well">
-					<div class="media">
-						<div class="media-left media-top">
-							<a href="#"><img src="img/usuario/usuario3.jpg" class="media-object" style="width:60px"></a>
-						</div>
-						<div class="media-body">
-							<a href="#">
-								<h3 class="media-heading">
-									<kbd><strong>Gonzalo García</strong></kbd>
-								</h3>
-							</a>
-							<h4><strong>Comentó</strong></h4>
-							<p id="comentarios"><strong>Te quedo en stock?<br>Necesito 2 pares para el siguiente domingo.</strong></p>
-						</div>
-					</div>
-				</div>
-				<div class="well">
-					<div class="media">
-						<div class="media-left media-top">
-							<a href="#"><img src="img/usuario/usuario4.jpg" class="media-object" style="width:60px"></a>
-						</div>
-						<div class="media-body">
-							<a href="#">
-								<h3 class="media-heading">
-									<kbd><strong>Daniel Lambdan</strong></kbd>
-								</h3>
-							</a>
-							<h4><strong>Comentó</strong></h4>
-							<p id="comentarios"><strong>Tenes de vidrio?</strong></p>
-						</div>
-					</div>
-				</div>
-				-->
+				<br>
+				<?php
+					require_once('conexion.php');
+					if(!isset($_SESSION)) { 
+				        session_start(); 
+				    }
+
+				    if(isset($_SESSION["identificador"])) {
+				    	echo "<form action='comentar.php?id_producto=".$_GET["id_producto"]."&id_usuario=".$_SESSION["identificador"]."' method='POST'>";
+						echo "<div class='media'>";
+						echo "<div class='media-left'>";
+						echo "<img src='".$_SESSION["avatar"]."' class='media-object' style='width:60px'>";
+						echo "</div>";
+						echo "<div class='media-body'>";
+						echo "<h4 class='media-heading'><textarea name='comentario' cols='30' rows='5' class='form-control'></textarea></h4>";
+						echo "<p class='text-right'><button type='submit' class='btn btn-default' id='boton-navbar' name='comentar'><strong>Comentar</strong></button></p>";
+						echo "</div>";
+						echo "</div>";
+						echo "</form>";
+				    }
+				?>
+				
+				<?php
+					require_once('conexion.php');
+					if(!isset($_SESSION)) { 
+				        session_start(); 
+				    }
+
+				    $traer_comentarios = "SELECT * FROM comentario WHERE id_producto = '".$_GET["id_producto"]."'";
+
+				    if(($con->query($traer_comentarios)->rowCount()) > 0) {
+				    	foreach($con->query($traer_comentarios) as $columna14) {
+				    		$comentario_comentario = $columna14["comentario"];
+				    		$comentario_id_usuario = $columna14["id_usuario"];
+
+				    		$comentario_usuario = "SELECT * FROM usuario WHERE id_usuario = '".$comentario_id_usuario."'";
+				    		foreach($con->query($comentario_usuario) as $columna15) {
+				    			$comentario_usuario_nombreyApellido = "".$columna15["nombre"]." ".$columna15["apellido"]."";
+				    			$comentario_usuario_avatar = $columna15["avatar"];
+				    		}
+				    		echo "<div class='well'>";
+				    		echo "<div class='media'>";
+				    		echo "<div class='media-left media-top'>";
+				    		echo "<img src='".$comentario_usuario_avatar."' class='media-object' style='width:60px'>";
+				    		echo "</div>";
+				    		echo "<div class='media-body'>";
+				    		echo "<h3 class='media-heading'><kbd><strong>".$comentario_usuario_nombreyApellido."</strong></kbd></h3>";
+				    		echo "<p>".utf8_decode($comentario_comentario)."</p>";
+				    		echo "</div>";
+				    		echo "</div>";
+				    		echo "</div>";
+				    	}
+
+				    }
+
+				?>
 			</div>
 		</div>
 	</div>

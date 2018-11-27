@@ -53,6 +53,7 @@
 				<div class="tab-content">
 					<div id="trueques" class="tab-pane fade in active">
 						<?php
+							#ARREGLAR ERROR DE QUE SE EJECUTA EL CODIGO DE LA PANTALLA DE PROPUESTAS
 							$trueque_traer = "SELECT * FROM propuesta WHERE id_usuario_emisor = '".$_SESSION["identificador"]."' AND id_estado_propuesta = '4'";
 							if(($con->query($trueque_traer))->rowCount() > 0) {
 								foreach($con->query($trueque_traer) as $columna) {

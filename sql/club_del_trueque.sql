@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2018 a las 06:50:58
+-- Tiempo de generación: 28-11-2018 a las 00:54:25
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.1.23
 
@@ -62,6 +62,26 @@ INSERT INTO `categoria` (`id_categoria`, `nombre`) VALUES
 (8, 'Herramientas'),
 (9, 'Juguetes'),
 (10, 'Misceláneo');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentario`
+--
+
+CREATE TABLE `comentario` (
+  `id_comentario` int(11) NOT NULL,
+  `comentario` text COLLATE utf8_bin NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `comentario`
+--
+
+INSERT INTO `comentario` (`id_comentario`, `comentario`, `id_producto`, `id_usuario`) VALUES
+(1, 'Hola, como estÃƒÂ¡n?', 10, 8);
 
 -- --------------------------------------------------------
 
@@ -192,17 +212,18 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `intereses`, `imagen`, `id_estado_producto`, `id_categoria`, `id_usuario`) VALUES
-(2, 'Motorola Google Nexus 6 ', 'Nexus 6 Especificaciones\r\n\r\nSistema Operativo: Android 5, Lollipop®\r\n\r\nProcesador del sistema: Procesador Qualcomm® Snapdragon™ 805 con CPU quad-core de 2,7 GHz\r\n\r\nMemoria (RAM): 3 GB\r\n\r\nAlmacenamiento: 32 GB*', 'Acepto ropa elegante como camisas, corbata, saco, zapatos, etc.', 'https://chavixx.cl/wp-content/uploads/2017/12/Nexus_6_001sign.jpg35ff16d0-15f3-4793-8f59-aeb89128e281Original.jpg', 1, 3, 8),
+(2, 'Motorola Google Nexus 6 ', 'Nexus 6 Especificaciones\r\n\r\nSistema Operativo: Android 5, Lollipop®\r\n\r\nProcesador del sistema: Procesador Qualcomm® Snapdragon™ 805 con CPU quad-core de 2,7 GHz\r\n\r\nMemoria (RAM): 3 GB\r\n\r\nAlmacenamiento: 32 GB*', 'Acepto ropa elegante como camisas, corbata, saco, zapatos, etc.', 'https://chavixx.cl/wp-content/uploads/2017/12/Nexus_6_001sign.jpg35ff16d0-15f3-4793-8f59-aeb89128e281Original.jpg', 3, 3, 8),
 (6, 'Playstation 4', 'Es la Playstation 4 original con 1TB de disco y un joystick original.', 'Acepto una Xbox One X o una PC Gamer.', 'https://i.imgur.com/oMeBGSk.jpg', 1, 3, 8),
-(7, 'Celular Alcatel OneTouch POP 2', 'Es un celular de calidad media baja totalmente funcional y solo fue usado una vez.', 'Intercambio por Auriculares, zapatillas o alguna cosa de cocina.', 'https://http2.mlstatic.com/alcatel-one-touch-pop-2-casi-nuevo-bien-cuidado-D_NQ_NP_977579-MLA28218992144_092018-F.jpg', 2, 3, 8),
+(7, 'Celular Alcatel OneTouch POP 2', 'Es un celular de calidad media baja totalmente funcional y solo fue usado una vez.', 'Intercambio por Auriculares, zapatillas o alguna cosa de cocina.', 'https://http2.mlstatic.com/alcatel-one-touch-pop-2-casi-nuevo-bien-cuidado-D_NQ_NP_977579-MLA28218992144_092018-F.jpg', 3, 3, 8),
 (9, 'La caja secreta', 'Es una caja misteriosa, quien sabe que contiene?\r\nSolo te podes arriesgar intercambiÃƒÂ¡ndola.', 'Intercambio por cosas de la categorÃƒÂ­a miscelÃƒÂ¡nea.', 'https://eldiadehoy.net/wp-content/uploads/2016/09/caja-simpsons.jpg', 2, 10, 8),
 (10, 'Playstation 1', 'Es la Playstation 1 con un joystick original.', 'La cambio por una Playstation 2 que funcione.', 'https://static.alfabetajuega.com/abj_public_files/multimedia/imagenes/201605/150375.alfabetajuega-ps1.jpg', 1, 3, 8),
-(11, 'Heladera Patrick', 'Es una heladera patrick del 2000 frio directo.', 'Acepto freezers portables.', 'https://http2.mlstatic.com/heladera-patrick-no-frost-D_NQ_NP_892321-MLA20738124980_052016-F.jpg', 1, 1, 11),
+(11, 'Heladera Patrick', 'Es una heladera patrick del 2000 frio directo.', 'Acepto freezers portables.', 'https://http2.mlstatic.com/heladera-patrick-no-frost-D_NQ_NP_892321-MLA20738124980_052016-F.jpg', 3, 1, 11),
 (12, 'Zapato Guante negro', 'Los clÃƒÂ¡sicos zapatos guante de color negro serie 31043.', 'Acepto chalecos de traje o camisas.', 'https://home.ripley.cl/store/Attachment/WOP/D311/2000323308874/2000323308874_2.jpg', 2, 5, 11),
-(13, 'Bicicleta reclinada Hi Bent', 'Es la bicicleta reclinada Hi Bent MRacer Pro Travel en color blanco y amarillo.', 'Acepto cualquier cosa de la categorÃƒÂ­a informÃƒÂ¡tica.', 'https://www.hi-bent.com.ar/wp-content/uploads/2018/02/Bicicleta-Reclinada-Hi-Bent-MRacer-Pro-Travel-a-min.jpg', 1, 6, 11),
+(13, 'Bicicleta reclinada Hi Bent', 'Es la bicicleta reclinada Hi Bent MRacer Pro Travel en color blanco y amarillo.', 'Acepto cualquier cosa de la categorÃƒÂ­a informÃƒÂ¡tica.', 'https://www.hi-bent.com.ar/wp-content/uploads/2018/02/Bicicleta-Reclinada-Hi-Bent-MRacer-Pro-Travel-a-min.jpg', 3, 6, 11),
 (14, 'Auriculares OMORC', 'Auriculares OMORC serie SX500, vienen color negro y con repuesto de cable.', 'Quiero un celular, escucho ofertas.', 'https://images-na.ssl-images-amazon.com/images/I/71dBCktsBgL._SX569_.jpg', 1, 3, 11),
 (15, 'Lavarropas AutomÃƒÂ¡tico Samsung Carga Frontal 7 Kg', 'Producto: Lavarropas AutomÃƒÂ¡tico Samsung 7 kg Carga Frontal WF1702 Plata\r\nModelo: WW70M2WEUU\r\nEcobubble: resultados excelentes aÃƒÂºn con agua frÃƒÂ­a\r\nTambor Diamante: protege tus prendas delicadas \r\nLavado rÃƒÂ¡pido 15', 'Lo cambio por heladeras.', 'https://http2.mlstatic.com/lavarropas-automatico-samsung-wf1702-blanco-7-kg-1200rpm-D_NQ_NP_874324-MLA25904140253_082017-F.jpg', 1, 4, 9),
-(16, 'Smart Tv Lg 32 32lj600b Hd Hdmi', 'TV LED 32 pulgadas LG \r\nHD / SMART / WEB OS3.0\r\nCÃƒÂ³digo: 32LJ600B', 'Lo cambio por electrodomesticos.', 'https://www.lg.com/ar/images/televisores/md05860539/gallery/32LJ600B_A_Zoom05_110817.jpg', 1, 3, 10);
+(16, 'Smart Tv Lg 32 32lj600b Hd Hdmi', 'TV LED 32 pulgadas LG \r\nHD / SMART / WEB OS3.0\r\nCÃƒÂ³digo: 32LJ600B', 'Lo cambio por electrodomesticos.', 'https://www.lg.com/ar/images/televisores/md05860539/gallery/32LJ600B_A_Zoom05_110817.jpg', 1, 3, 10),
+(17, 'Alfajor Negro Cucinare', 'Si sos fanÃƒÂ¡tico del chocolate, no hay mejor tentaciÃƒÂ³n que este postre: Ã‚Â¡un tamaÃƒÂ±o inmejorable!', 'Lo cambio por cerveza.', 'https://www.cucinare.tv/wp-content/uploads/2017/09/alfa.jpg', 4, 1, 8);
 
 -- --------------------------------------------------------
 
@@ -224,9 +245,12 @@ CREATE TABLE `propuesta` (
 --
 
 INSERT INTO `propuesta` (`id_propuesta`, `fecha_inicio`, `fecha_finalizada`, `id_estado_propuesta`, `id_usuario_emisor`, `id_usuario_receptor`) VALUES
-(1, '2018-11-26', NULL, 1, 8, 11),
-(2, '2018-11-26', NULL, 1, 9, 11),
-(3, '2018-11-26', NULL, 1, 10, 11);
+(1, '2018-11-26', NULL, 4, 8, 11),
+(2, '2018-11-26', NULL, 2, 9, 11),
+(3, '2018-11-26', NULL, 2, 10, 11),
+(4, '2018-11-26', NULL, 2, 11, 8),
+(5, '2018-11-26', NULL, 2, 10, 8),
+(6, '2018-11-27', '2018-11-27', 4, 8, 11);
 
 -- --------------------------------------------------------
 
@@ -249,7 +273,13 @@ INSERT INTO `propuestas_productos` (`id_propuesta`, `id_producto`) VALUES
 (2, 15),
 (2, 11),
 (3, 16),
-(3, 11);
+(3, 11),
+(4, 13),
+(4, 6),
+(5, 16),
+(5, 6),
+(6, 7),
+(6, 13);
 
 -- --------------------------------------------------------
 
@@ -328,6 +358,14 @@ ALTER TABLE `calificacion`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id_categoria`);
+
+--
+-- Indices de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD PRIMARY KEY (`id_comentario`),
+  ADD KEY `INDEX` (`id_producto`),
+  ADD KEY `INDEX2` (`id_usuario`);
 
 --
 -- Indices de la tabla `estado_producto`
@@ -415,6 +453,12 @@ ALTER TABLE `categoria`
   MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `estado_producto`
 --
 ALTER TABLE `estado_producto`
@@ -436,13 +480,13 @@ ALTER TABLE `permisos`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `propuesta`
 --
 ALTER TABLE `propuesta`
-  MODIFY `id_propuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_propuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -467,6 +511,13 @@ ALTER TABLE `calificacion`
   ADD CONSTRAINT `calificacion_ibfk_1` FOREIGN KEY (`id_usuario_calificador`) REFERENCES `usuario` (`id_usuario`),
   ADD CONSTRAINT `calificacion_ibfk_2` FOREIGN KEY (`id_usuario_calificado`) REFERENCES `usuario` (`id_usuario`),
   ADD CONSTRAINT `calificacion_ibfk_3` FOREIGN KEY (`id_propuesta`) REFERENCES `propuesta` (`id_propuesta`);
+
+--
+-- Filtros para la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`),
+  ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
 -- Filtros para la tabla `permisos_rol`
