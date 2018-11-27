@@ -1,3 +1,14 @@
+<?php
+	require_once('conexion.php');
+	if(!isset($_SESSION)) { 
+		session_start(); 
+	}
+
+	if(!isset($_SESSION["identificador"])) {
+		header('Location: index.php');
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,7 +24,7 @@
 </head>
 <body>
 	<header>
-		<?php include "navbar-logueado.php"; ?>
+		<?php include "dibujar_navbar.php"; ?>
 	</header>
 
 	<div class="container">
@@ -41,6 +52,12 @@
 			<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
 				<div class="tab-content">
 					<div id="trueques" class="tab-pane fade in active">
+						<?php
+							$trueque_traer = "SELECT * FROM propuesta WHERE id_usuario_emisor = '".$_SESSION["identificador"]."' AND id_estado_propuesta = '4'";
+							foreach($con->query($trueque_traer) as $columna) {
+								#TENGO QUE RELLENAR LOS TRUEQUES
+							}
+						?>
 						<div class="well">
 							<h3>Intercambiaste</h3>
 							<h4><code>Chupin Beige</code></h4>

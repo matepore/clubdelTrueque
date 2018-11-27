@@ -10,7 +10,7 @@
 			        <ul class="dropdown-menu">
 			        	<?php
 			        		foreach ($con->query($categoria) as $row) {
-			        			echo "<li><a href='#'>".utf8_encode($row['nombre'])."</a></li>";
+			        			echo "<li><a href='buscar.php?query=".utf8_encode($row['nombre'])."&id_categoria=".$row["id_categoria"]."'>".utf8_encode($row['nombre'])."</a></li>";
 			        		}
 			        	?>
 			        </ul>
@@ -23,7 +23,6 @@
 			    </form>
 			</ul>
 		    <ul class="nav navbar-nav navbar-right">
-		    	<li><a id="navLetra" href="#"><span class="fas fa-bell fa-2x"></span></a></li>
 		    	<li>
 		    		<?php
 		    			echo "<a href='dibujar_perfil.php' id='navLetra'>".$_SESSION["nombre"]." ".$_SESSION["apellido"]." "."<img src='".$_SESSION["avatar"]."' style='width:30px'></a>";

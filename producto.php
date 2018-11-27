@@ -87,7 +87,6 @@
 					}
 					else {
 						echo "<button type='button' id='margenSuperiorBoton' class='btn btn-default btn-block' data-toggle='modal' data-target='#truequeModal'><h5><strong>Proponer Trueque</strong></h5></button>";
-						echo "<button type='button' id='margenSuperiorBoton' class='btn btn-default btn-block'><h5><strong>Ver Cartera</strong></h5></button>";
 					}
 				?>
 			</div>

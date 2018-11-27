@@ -25,47 +25,92 @@
 		
 		<?php
 			require_once('conexion.php');
-			$query = $_GET['query'];
-			$query = htmlspecialchars($query);
-			$query2 = "SELECT * FROM producto WHERE (nombre LIKE '%".$query."%' OR nombre LIKE '".$query."%' OR nombre LIKE '%".$query."') AND id_estado_producto = 1";
 
-			if(($con->query($query2))->rowCount() > 0) {
-				echo "<div class='row text-center'><div class='col-md-4 col-lg-4 col-xs-12 col-sm-12'></div><div class='col-md-8 col-lg-8 col-xs-12 col-sm-12'>";
-				foreach($con->query($query2) as $row) {
-					echo "<div class='well col-md-12 col-lg-12 col-xs-12 col-sm-12' id='producto-buscar'>";
+			if(isset($_GET["id_categoria"])) {
+				$query = "SELECT * FROM producto WHERE id_categoria = '".$_GET["id_categoria"]."' AND id_estado_producto = 1";
 
-					echo "<div><label><h3>".$row["nombre"]."</h3></label></div>";
+				if(($con->query($query))->rowCount() > 0) {
+					echo "<div class='row text-center'><div class='col-md-4 col-lg-4 col-xs-12 col-sm-12'></div><div class='col-md-8 col-lg-8 col-xs-12 col-sm-12'>";
+					foreach($con->query($query) as $row) {
+						echo "<div class='well col-md-12 col-lg-12 col-xs-12 col-sm-12' id='producto-buscar'>";
 
-					echo "<div class='col-md-4 col-lg-4 col-xs-12 col-sm-12'>";
+						echo "<div><label><h3>".$row["nombre"]."</h3></label></div>";
 
-					echo "<a href='dibujar_producto.php?id_producto=".$row["id_producto"]."'><img src='".$row["imagen"]."' class='img-responsive' style='width:100%'></div></a>";
+						echo "<div class='col-md-4 col-lg-4 col-xs-12 col-sm-12'>";
 
-					echo "<div class='col-md-8 col-lg-8 col-xs-12 col-sm-12'>";
+						echo "<a href='dibujar_producto.php?id_producto=".$row["id_producto"]."'><img src='".$row["imagen"]."' class='img-responsive' style='width:100%'></div></a>";
 
-					$usuario = "SELECT nombre, apellido FROM usuario WHERE id_usuario = ".$row["id_usuario"]."";
-					foreach($con->query($usuario) as $row2) {
-						$nombre = utf8_encode($row2["nombre"]);
-						$apellido = utf8_encode($row2["apellido"]);
+						echo "<div class='col-md-8 col-lg-8 col-xs-12 col-sm-12'>";
+
+						$usuario = "SELECT nombre, apellido FROM usuario WHERE id_usuario = ".$row["id_usuario"]."";
+						foreach($con->query($usuario) as $row2) {
+							$nombre = utf8_encode($row2["nombre"]);
+							$apellido = utf8_encode($row2["apellido"]);
+						}
+						echo "<h4><p class='text-left'><span class='fas fa-user-circle'></span> ".$nombre." ".$apellido."</p></h4>";
+
+						$categoria = "SELECT nombre FROM categoria WHERE id_categoria = ".$row["id_categoria"]."";
+						foreach($con->query($categoria) as $row3) {
+							$nombre_categoria = utf8_encode($row3["nombre"]);
+						}
+
+						echo "<h4><p class='text-left'><span class='fas fa-boxes'></span> ".$nombre_categoria."";
+
+						echo "<h4><p class='text-left'><span class='fas fa-thumbs-up'></span> Intereses:</p></h4>";
+
+						echo "<h4><p class='text-left' id='intereses'>".$row["intereses"]."</p></h4>";
+
+						echo "</div></div>";
 					}
-					echo "<h4><p class='text-left'><span class='fas fa-user-circle'></span> ".$nombre." ".$apellido."</p></h4>";
-
-					$categoria = "SELECT nombre FROM categoria WHERE id_categoria = ".$row["id_categoria"]."";
-					foreach($con->query($categoria) as $row3) {
-						$nombre_categoria = utf8_encode($row3["nombre"]);
-					}
-
-					echo "<h4><p class='text-left'><span class='fas fa-boxes'></span> ".$nombre_categoria."";
-
-					echo "<h4><p class='text-left'><span class='fas fa-thumbs-up'></span> Intereses:</p></h4>";
-
-					echo "<h4><p class='text-left' id='intereses'>".$row["intereses"]."</p></h4>";
-
-					echo "</div></div>";
+				}
+				else {
+					echo "<h1 class='text-center'><small>No hay coincidencias.</small></h1>";
 				}
 			}
 			else {
-				echo "<h1 class='text-center'><small>No hay coincidencias.</small></h1>";
+				$query = $_GET['query'];
+				$query = htmlspecialchars($query);
+				$query2 = "SELECT * FROM producto WHERE (nombre LIKE '%".$query."%' OR nombre LIKE '".$query."%' OR nombre LIKE '%".$query."') AND id_estado_producto = 1";
+				
+				if(($con->query($query2))->rowCount() > 0) {
+					echo "<div class='row text-center'><div class='col-md-4 col-lg-4 col-xs-12 col-sm-12'></div><div class='col-md-8 col-lg-8 col-xs-12 col-sm-12'>";
+					foreach($con->query($query2) as $row) {
+						echo "<div class='well col-md-12 col-lg-12 col-xs-12 col-sm-12' id='producto-buscar'>";
+
+						echo "<div><label><h3>".$row["nombre"]."</h3></label></div>";
+
+						echo "<div class='col-md-4 col-lg-4 col-xs-12 col-sm-12'>";
+
+						echo "<a href='dibujar_producto.php?id_producto=".$row["id_producto"]."'><img src='".$row["imagen"]."' class='img-responsive' style='width:100%'></div></a>";
+
+						echo "<div class='col-md-8 col-lg-8 col-xs-12 col-sm-12'>";
+
+						$usuario = "SELECT nombre, apellido FROM usuario WHERE id_usuario = ".$row["id_usuario"]."";
+						foreach($con->query($usuario) as $row2) {
+							$nombre = utf8_encode($row2["nombre"]);
+							$apellido = utf8_encode($row2["apellido"]);
+						}
+						echo "<h4><p class='text-left'><span class='fas fa-user-circle'></span> ".$nombre." ".$apellido."</p></h4>";
+
+						$categoria = "SELECT nombre FROM categoria WHERE id_categoria = ".$row["id_categoria"]."";
+						foreach($con->query($categoria) as $row3) {
+							$nombre_categoria = utf8_encode($row3["nombre"]);
+						}
+
+						echo "<h4><p class='text-left'><span class='fas fa-boxes'></span> ".$nombre_categoria."";
+
+						echo "<h4><p class='text-left'><span class='fas fa-thumbs-up'></span> Intereses:</p></h4>";
+
+						echo "<h4><p class='text-left' id='intereses'>".$row["intereses"]."</p></h4>";
+
+						echo "</div></div>";
+					}
+				}
+				else {
+					echo "<h1 class='text-center'><small>No hay coincidencias.</small></h1>";
+				}
 			}
+			
 		?>
 		
 	<!--<div class="row text-center">
