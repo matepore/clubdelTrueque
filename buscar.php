@@ -34,7 +34,7 @@
 					foreach($con->query($query) as $row) {
 						echo "<div class='well col-md-12 col-lg-12 col-xs-12 col-sm-12' id='producto-buscar'>";
 
-						echo "<div><label><h3>".$row["nombre"]."</h3></label></div>";
+						echo "<div><label><h3>".utf8_decode($row["nombre"])."</h3></label></div>";
 
 						echo "<div class='col-md-4 col-lg-4 col-xs-12 col-sm-12'>";
 
@@ -44,8 +44,8 @@
 
 						$usuario = "SELECT nombre, apellido FROM usuario WHERE id_usuario = ".$row["id_usuario"]."";
 						foreach($con->query($usuario) as $row2) {
-							$nombre = utf8_encode($row2["nombre"]);
-							$apellido = utf8_encode($row2["apellido"]);
+							$nombre = utf8_decode($row2["nombre"]);
+							$apellido = utf8_decode($row2["apellido"]);
 						}
 						echo "<h4><p class='text-left'><span class='fas fa-user-circle'></span> ".$nombre." ".$apellido."</p></h4>";
 
@@ -77,7 +77,7 @@
 					foreach($con->query($query2) as $row) {
 						echo "<div class='well col-md-12 col-lg-12 col-xs-12 col-sm-12' id='producto-buscar'>";
 
-						echo "<div><label><h3>".$row["nombre"]."</h3></label></div>";
+						echo "<div><label><h3>".utf8_decode($row["nombre"])."</h3></label></div>";
 
 						echo "<div class='col-md-4 col-lg-4 col-xs-12 col-sm-12'>";
 
@@ -87,14 +87,14 @@
 
 						$usuario = "SELECT nombre, apellido FROM usuario WHERE id_usuario = ".$row["id_usuario"]."";
 						foreach($con->query($usuario) as $row2) {
-							$nombre = utf8_encode($row2["nombre"]);
-							$apellido = utf8_encode($row2["apellido"]);
+							$nombre = utf8_decode($row2["nombre"]);
+							$apellido = utf8_decode($row2["apellido"]);
 						}
 						echo "<h4><p class='text-left'><span class='fas fa-user-circle'></span> ".$nombre." ".$apellido."</p></h4>";
 
 						$categoria = "SELECT nombre FROM categoria WHERE id_categoria = ".$row["id_categoria"]."";
 						foreach($con->query($categoria) as $row3) {
-							$nombre_categoria = utf8_encode($row3["nombre"]);
+							$nombre_categoria = utf8_decode($row3["nombre"]);
 						}
 
 						echo "<h4><p class='text-left'><span class='fas fa-boxes'></span> ".$nombre_categoria."";

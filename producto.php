@@ -20,7 +20,7 @@
 		<div class="row">
 			<div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
 				<?php
-					echo "<h1 class='page-header'><p class='text-center'>".$producto_nombre."</p></h1>";
+					echo "<h1 class='page-header'><p class='text-center'>".utf8_decode($producto_nombre)."</p></h1>";
 				?>
 			</div>
 		</div>
@@ -65,7 +65,7 @@
 					<li class="list-group-item list-group-item-success" id="alertBA">
 						<span class="far fa-thumbs-up fa-2x"> <strong>Intereses</strong></span>
 						<?php
-							echo "<h3 class='text-center' id='intereses'>".utf8_encode($producto_intereses)."</h3>";
+							echo "<h3 class='text-center' id='intereses'>".utf8_decode($producto_intereses)."</h3>";
 						?>
 					</li>
 				</ul>
@@ -95,7 +95,7 @@
 			<div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
 				<h1 class="bg-success"><p class="text-center">Descripción</p></h1>
 				<?php
-					echo "<h2><small>".utf8_encode($producto_descripcion)."</small></h2>";
+					echo "<h2><small>".utf8_decode($producto_descripcion)."</small></h2>";
 				?>
 			</div>
 		</div>
@@ -186,7 +186,7 @@
 						echo "<div class='well'><div class='media'><div class='media-left media-top'>";
 						echo "<img src='".$usuarioEmisor_imagen."' class='media-object' style='width:60px'></div>";
 						echo "<div class='media-body'><h3 class='media-heading'><kbd><strong>".$usuarioEmisor_nombreyApellido."</strong></kbd></h3>";
-						echo "<p>Ofreció <strong><a href='dibujar_producto.php?id_producto=".$producEmisor_id."'>".$producEmisor_nombre."</a></strong></p>";
+						echo "<p>Ofreció <strong><a href='dibujar_producto.php?id_producto=".$producEmisor_id."'>".utf8_decode($producEmisor_nombre)."</a></strong></p>";
 						echo "<br><p class='text-right'><span class='fas fa-times' id='rechazado'></span> Trueque rechazado.</p></div></div></div>";
 
 					}

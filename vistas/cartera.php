@@ -32,9 +32,9 @@
                 $contenido = 1;
                 $contador++;
                 echo "<div class='container'><div class='row'><div class='col-lg-4 col-md-4 col-sm-12 col-xs-12'><div class='nombre panel panel-warning'><div class='panel-heading' class='es'>";
-                echo "<h3 class='panel-title'>".utf8_encode($row['nombre'])."</h3></div>";
+                echo "<h3 class='panel-title'>".utf8_decode($row['nombre'])."</h3></div>";
                 echo "<div class='panel-body'><a href='dibujar_producto.php?id_producto=".$row["id_producto"]."'><img class='img-responsive img-thumbnail' src='".utf8_encode($row['imagen'])."'></a>";
-                echo "<p>Descripción: ".utf8_encode($row['descripcion'])."</p>";
+                echo "<p>Descripción: ".utf8_decode($row['descripcion'])."</p>";
                 if($row["id_estado_producto"] == 1) {
                     echo "<p class='text-right'><kbd id='colorKBD'><span class='fas fa-eye'></span> Publico</kbd></p>";
                 }
@@ -55,9 +55,9 @@
                 $contador = 1;
                 echo "</div></div>";
                 echo "<div class='container'><div class='row'><div class='col-lg-4 col-md-4 col-sm-12 col-xs-12'><div class='nombre panel panel-warning'><div class='panel-heading' class='es'>";
-                echo "<h3 class='panel-title'>".utf8_encode($row['nombre'])."</h3></div>";
+                echo "<h3 class='panel-title'>".utf8_decode($row['nombre'])."</h3></div>";
                 echo "<div class='panel-body'><a href='dibujar_producto.php?id_producto=".$row["id_producto"]."'><img class='img-responsive img-thumbnail' src='".utf8_encode($row['imagen'])."'></a>";
-                echo "<p>Descripción: ".utf8_encode($row['descripcion'])."</p>";
+                echo "<p>Descripción: ".utf8_decode($row['descripcion'])."</p>";
                 if($row["id_estado_producto"] == 1) {
                     echo "<p class='text-right'><kbd id='colorKBD'><span class='fas fa-eye'></span> Publico</kbd></p>";
                 }
@@ -77,9 +77,9 @@
             else {
                 $contador++;
                 echo "<div class='col-lg-4 col-md-4 col-sm-12 col-xs-12'><div class='nombre panel panel-warning'><div class='panel-heading' class='es'>";
-                echo "<h3 class='panel-title'>".utf8_encode($row['nombre'])."</h3></div>";
+                echo "<h3 class='panel-title'>".utf8_decode($row['nombre'])."</h3></div>";
                 echo "<div class='panel-body'><a href='dibujar_producto.php?id_producto=".$row["id_producto"]."'><img class='img-responsive img-thumbnail' src='".utf8_encode($row['imagen'])."'></a>";
-                echo "<p>Descripción: ".utf8_encode($row['descripcion'])."</p>";
+                echo "<p>Descripción: ".utf8_decode($row['descripcion'])."</p>";
                 if($row["id_estado_producto"] == 1) {
                     echo "<p class='text-right'><kbd id='colorKBD'><span class='fas fa-eye'></span> Publico</kbd></p>";
                 }
