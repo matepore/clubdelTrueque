@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 	<script src="js/script.js"></script>
+	<script src="js/registro.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -37,9 +38,9 @@
 						<label for="Nombre"><b>Nombre:</b></label>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fas fa-user-circle"></i></span>
-							<input id="nombre" type="text" class="form-control" name="Nombre" placeholder="Ingrese su nombre" required>
+							<input id="nombre" type="text" class="form-control" name="Nombre" placeholder="Ingrese su nombre" required pattern="^([a-zA-Zñáéíóú]{3,45})$" title="Ingrese un nombre con longitud entre 3 y 45 caracteres.">
+							<label class="hidden" id="errorNombre"></label>
 						</div>
-						
 					</div>
 				</div>
 				<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
@@ -47,7 +48,8 @@
 						<label for="apellido"><b>Apellido:</b></label>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fas fa-user"></i></span>
-							<input id="apellido" type="text" class="form-control" name="Apellido" placeholder="Ingrese su apellido" required>
+							<input id="apellido" type="text" class="form-control" name="Apellido" placeholder="Ingrese su apellido" required pattern="^([a-zA-Zñáéíóú]{3,45})$" title="Ingrese un apellido con longitud entre 3 y 45 caracteres.">
+							<label class="hidden" id="errorApellido"></label>
 						</div>
 					</div>
 				</div>
@@ -61,7 +63,8 @@
 						<label for="Email"><b>E-mail:</b></label>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fas fa-envelope"></i></span>
-							<input id="email" type="email" class="form-control" name="Email" placeholder="Ingrese su e-mail" required>
+							<input id="email" type="email" class="form-control" name="Email" placeholder="Ingrese su e-mail" required pattern="^[_a-zA-Z0-9-ñáéíóú]+(.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(.[a-zA-Z0-9-]+)*(.[a-zA-Z]{2,4})$">
+							<label class="hidden" id="errorEmail"></label>
 						</div>
 					</div>
 				</div>
@@ -70,7 +73,8 @@
 						<label for="contraseña"><b>Contraseña:</b></label>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>
-							<input id="Contraseña" type="password" class="form-control" name="Contraseña" placeholder="Ingrese su contraseña" required>
+							<input id="password" type="password" class="form-control" name="Contraseña" placeholder="Ingrese su contraseña" required pattern="^([_a-zA-Z0-9-*@°!%$?¡¿+~{}¬ñáéíóú]{6,})$" title="Ingrese una contraseña que tenga mínimo 6 caracteres de longitud.">
+							<label class="hidden" id="errorPassword"></label>
 						</div>
 					</div>
 				</div>
@@ -85,6 +89,7 @@
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span>
 							<input id="fnacimiento" type="date" class="form-control" name="Fecha_nacimiento" placeholder="Ingrese su fecha de nacimiento" required>
+							<label class="hidden" id="errorFecha"></label>
 						</div>
 					</div>
 				</div>
@@ -93,7 +98,8 @@
 						<label for="telefono"><b>Telefono:</b></label>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fas fa-phone"></i></span>
-							<input id="Telefono" type="number" class="form-control" name="Telefono" placeholder="Ingrese numero de telefono" required>
+							<input id="telefono" type="number" class="form-control" name="Telefono" placeholder="Ingrese numero de telefono" required pattern="^([0-9]{8,20})$" title="Por favor ingrese solo numeros.">
+							<label class="hidden" id="errorTelefono"></label>
 						</div>
 					</div>
 				</div>
@@ -107,7 +113,8 @@
 						<label for="provincia"><b>Provincia:</b></label>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fas fa-globe-americas"></i></span>
-							<input id="Provincia" type="text" class="form-control" name="Provincia" placeholder="Ingrese provincia" required>
+							<input id="provincia" type="text" class="form-control" name="Provincia" placeholder="Ingrese provincia" required pattern="^([a-zA-Z\sñáéíóú]{5,25})$" title="Asegurese de ingresar una provincia Argentina.">
+							<label class="hidden" id="errorProvincia"></label>
 						</div>
 					</div>
 				</div>
@@ -116,7 +123,8 @@
 						<label for="localidad"><b>Localidad:</b></label>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fas fa-hotel"></i></span>
-							<input id="Localidad" type="text" class="form-control" name="Localidad" placeholder="Ingrese localidad" required>
+							<input id="localidad" type="text" class="form-control" name="Localidad" placeholder="Ingrese localidad" required pattern="^([a-zA-Z\s()ñáéíóú]{3,120})$">
+							<label class="hidden" id="errorLocalidad"></label>
 						</div>
 					</div>
 				</div>

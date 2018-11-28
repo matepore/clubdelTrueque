@@ -33,7 +33,7 @@
 						<label>Nombre del producto:</label>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fas fa-tag"></i></span>
-							<input type="text" name="nombre" class="form-control" placeholder="Ingrese el nombre" required>
+							<input type="text" name="nombre" class="form-control" placeholder="Ingrese el nombre" required pattern="^([a-zA-Zñáéíóú]{3,60})$">
 						</div>
 					</div>
 

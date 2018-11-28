@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-11-2018 a las 00:54:25
+-- Tiempo de generación: 28-11-2018 a las 05:35:46
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.1.23
 
@@ -32,7 +32,6 @@ CREATE TABLE `calificacion` (
   `id_calificacion` int(11) NOT NULL,
   `valor` int(2) NOT NULL,
   `id_propuesta` int(11) NOT NULL,
-  `id_usuario_calificador` int(11) NOT NULL,
   `id_usuario_calificado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -326,7 +325,7 @@ CREATE TABLE `usuario` (
   `fecha_nacimiento` date NOT NULL,
   `telefono` int(20) DEFAULT NULL,
   `provincia` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `localidad` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `localidad` varchar(120) COLLATE utf8_bin DEFAULT NULL,
   `avatar` text COLLATE utf8_bin
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -350,7 +349,6 @@ INSERT INTO `usuario` (`id_usuario`, `nombre`, `apellido`, `email`, `password`, 
 ALTER TABLE `calificacion`
   ADD PRIMARY KEY (`id_calificacion`),
   ADD KEY `INDEX` (`id_propuesta`),
-  ADD KEY `INDEX 2` (`id_usuario_calificador`),
   ADD KEY `INDEX 3` (`id_usuario_calificado`);
 
 --
@@ -498,7 +496,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas
@@ -508,7 +506,6 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `calificacion`
 --
 ALTER TABLE `calificacion`
-  ADD CONSTRAINT `calificacion_ibfk_1` FOREIGN KEY (`id_usuario_calificador`) REFERENCES `usuario` (`id_usuario`),
   ADD CONSTRAINT `calificacion_ibfk_2` FOREIGN KEY (`id_usuario_calificado`) REFERENCES `usuario` (`id_usuario`),
   ADD CONSTRAINT `calificacion_ibfk_3` FOREIGN KEY (`id_propuesta`) REFERENCES `propuesta` (`id_propuesta`);
 

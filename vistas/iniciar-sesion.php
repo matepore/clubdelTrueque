@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 	<script src="js/script.js"></script>
+    <script src="js/iniciar-sesion.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -37,7 +38,8 @@
                         <label for="email" class="inputitulo"><b>Email:</b></label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fas fa-envelope"></i></span>
-                            <input id="email" type="email" class="form-control" name="email" placeholder="Ingrese su e-mail" required>
+                            <input id="email" type="email" class="form-control" name="email" placeholder="Ingrese su e-mail" required pattern="^[_a-zA-Z0-9-ñáéíóú]+(.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(.[a-zA-Z0-9-]+)*(.[a-zA-Z]{2,4})$">
+                            <label class="hidden" id="errorEmail"></label>
                         </div>
                     </div>
 
@@ -45,14 +47,14 @@
                         <label for="contraseña" class="inputitulo"><b>Contraseña:</b></label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>
-                            <input id="Contraseña" type="password" class="form-control" name="contraseña" placeholder="Ingrese contraseña" required>
+                            <input id="password" type="password" class="form-control" name="contraseña" placeholder="Ingrese contraseña" required pattern="^([_a-zA-Z0-9-*@°!%$?¡¿+~{}¬ñáéíóú]{6,})$" title="Ingrese una contraseña que tenga mínimo 6 caracteres de longitud.">
+                            <label class="hidden" id="errorPassword"></label>
                         </div>
                     </div>
-
                     <input id="btn" type="submit" value="Ingresar" name="ingresar">
                     <br>
                     <br>
-                    <a href="registro.php" id="ccuenta" ><p class="text-center"><strong>Crear Cuenta</strong></p></a>
+                    <a href="persistir_usuario.php" id="ccuenta" ><p class="text-center"><strong>Crear Cuenta</strong></p></a>
                 </form>
             </div>
         </div>
