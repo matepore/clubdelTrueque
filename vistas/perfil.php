@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 	<script src="js/script.js"></script>
+	<script src="js/cambiar_password.js"></script>
+	<script src="js/cambiar_info.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -56,18 +58,20 @@
 	                        <label><b>Ingrese contraseña antigua:</b></label>
 	                        <div class="input-group">
 	                            <span class="input-group-addon"><i class="fas fa-unlock"></i></span>
-	                            <input type="password" class="form-control" name="password_viejo" placeholder="Ingrese contraseña" required>
+	                            <input type="password" class="form-control" id="password_viejo" name="password_viejo" placeholder="Ingrese contraseña" required pattern="^([_a-zA-Z0-9-*@°!%$?¡¿+~{}¬ñáéíóú]{6,})$" title="Ingrese una contraseña que tenga mínimo 6 caracteres de longitud.">
+	                            <label class="hidden" id="errorPasswordAntigua"></label>
 	                        </div>
                     	</div>
                     	<div class="form-group">
 	                        <label><b>Ingrese la nueva contraseña:</b></label>
 	                        <div class="input-group">
 	                            <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>
-	                            <input type="password" class="form-control" name="password_nuevo" placeholder="Ingrese contraseña" required>
+	                            <input type="password" class="form-control" id="password_nuevo" name="password_nuevo" placeholder="Ingrese contraseña" required pattern="^([_a-zA-Z0-9-*@°!%$?¡¿+~{}¬ñáéíóú]{6,})$" title="Ingrese una contraseña que tenga mínimo 6 caracteres de longitud.">
+	                        	<label class="hidden" id="errorPasswordNueva"></label>
 	                        </div>
                     	</div>
 						<div class="form-group">
-							<input type="submit" class="btn btn-primary btn-block" class="form-control" value="Cambiar" name="cambiarPassword">
+							<input type="submit" id="cambiarPassworudu" class="btn btn-primary btn-block" class="form-control" value="Cambiar" name="cambiarPassword">
 							<input type="reset" class="btn btn-danger btn-block" class="form-control" value="Limpiar Campos">
 						</div>
 					</form>
@@ -89,25 +93,28 @@
 	                        <label><b>Localidad:</b></label>
 	                        <div class="input-group">
 	                            <span class="input-group-addon"><i class="fas fa-hotel"></i></span>
-	                            <?php echo "<input type='tex't class='form-control' placeholder='Ingrese localidad' name='localidad' value='".$_SESSION["localidad"]."' required>"; ?>
+	                            <?php echo "<input type='text' id='localidad' class='form-control' placeholder='Ingrese localidad' name='localidad' value='".$_SESSION["localidad"]."' required pattern='^([a-zA-Z\s()ñáéíóú]{3,120})$'>"; ?>
+	                        	<label class="hidden" id="errorLocalidad"></label>
 	                        </div>
                     	</div>
                     	<div class="form-group">
 	                        <label><b>Provincia:</b></label>
 	                        <div class="input-group">
 								<span class="input-group-addon"><i class="fas fa-globe-americas"></i></span>
-								<?php echo "<input type='text' class='form-control' placeholder='Ingrese provincia' name='provincia' value='".$_SESSION["provincia"]."' required>"; ?>
+								<?php echo "<input type='text' id='provincia' class='form-control' placeholder='Ingrese provincia' name='provincia' value='".$_SESSION["provincia"]."' required pattern='^([a-zA-Z\sñáéíóú]{5,25})$' title='Asegurese de ingresar una provincia Argentina.'>"; ?>
+								<label class="hidden" id="errorProvincia"></label>
 							</div>
                     	</div>
                     	<div class="form-group">
                     		<label><b>Telefono:</b></label>
                     		<div class="input-group">
                     			<span class="input-group-addon"><i class="fas fa-phone"></i></span>
-                    			<?php echo "<input type='number' class='form-control' placeholder='Ingrese teléfono' name='telefono' value='".$_SESSION["telefono"]."' required>"; ?>
+                    			<?php echo "<input type='number' id='telefono' class='form-control' placeholder='Ingrese teléfono' name='telefono' value='".$_SESSION["telefono"]."' required pattern='^([0-9]{8,20})$' title='Por favor ingrese solo numeros.'>"; ?>
+                    			<label class="hidden" id="errorTelefono"></label>
                     		</div>
                     	</div>
 						<div class="form-group">
-							<input type="submit" name="cambiarInfo" class="btn btn-primary btn-block" class="form-control" value="Cambiar">
+							<input type="submit" id="cambiarInformacion" name="cambiarInfo" class="btn btn-primary btn-block" class="form-control" value="Cambiar">
 							<input type="reset" class="btn btn-danger btn-block" class="form-control" value="Restaurar Campos">
 						</div>
 					</form>

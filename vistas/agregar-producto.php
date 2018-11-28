@@ -33,7 +33,8 @@
 						<label>Nombre del producto:</label>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fas fa-tag"></i></span>
-							<input type="text" name="nombre" class="form-control" placeholder="Ingrese el nombre" required pattern="^([a-zA-Zñáéíóú]{3,60})$">
+							<input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese el nombre" required pattern="^([a-zA-Zñáéíóú]{3,60})$" title="Ingrese un nombre con longitud entre 3 y 60 caracteres.">
+							<label class="hidden" id="errorNombre"></label>
 						</div>
 					</div>
 
@@ -58,12 +59,12 @@
 
 					<div class="form-group">
 						<label>Descripción del producto:</label>
-						<textarea name="descripcion" class="form-control" rows="5" id="comment"></textarea>
+						<textarea name="descripcion" class="form-control" rows="5" id="comment" required></textarea>
 					</div>
 
 					<div class="form-group">
 						<label>Tus intereses para un trueque:</label>
-						<textarea name="intereses" class="form-control" rows="5" id="comment"></textarea>
+						<textarea name="intereses" class="form-control" rows="5" id="comment" required></textarea>
 					</div>
 					
 					<div class="form-group">
@@ -76,7 +77,7 @@
 
 					<div class="form-group">
 						<p>
-							<input type="submit" name="agregarProducto" class="btn btn-default btn-block" id="boton-alternativo" value="Enviar">
+							<input type="submit" name="agregarProducto" class="btn btn-default btn-block" id="boton-alternativo" id="agregar" value="Enviar">
 						</p>
 					</div>
 				</form>
