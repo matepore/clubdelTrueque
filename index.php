@@ -84,22 +84,5 @@
             </div>
         </div>-->
 	</div>
-
-	<div id="productoModal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header" class="modal-title">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h2 class="text-center">Copas para vino x2</h2>
-				</div>
-				<div class="modal-body">
-					<img src="img/cocina/copas-par.jpg" class="img-responsive">
-					<h1 class="bg-success"><p class="text-center">Intereses</p></h1>
-					<h3 class="text-center">Me interesan vasos, cubiertos, platos y cosas de cocina.</h3>
-					<a href="producto.php"><button class="btn btn-default btn-block" id="boton-navbar"><strong>Visitar pagina del producto</strong></button></a>
-				</div>
-			</div>
-		</div>
-	</div>
 </body>
 </html>

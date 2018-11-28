@@ -10,7 +10,7 @@
 			        <ul class="dropdown-menu">
 			        	<?php
 			        		foreach ($con->query($categoria) as $row) {
-			        			echo "<li><a href='#'>".utf8_encode($row['nombre'])."</a></li>";
+			        			echo "<li><a href='buscar.php?query=".utf8_encode($row['nombre'])."&id_categoria=".$row["id_categoria"]."'>".utf8_encode($row['nombre'])."</a></li>";
 			        		}
 			        	?>
 			        </ul>
