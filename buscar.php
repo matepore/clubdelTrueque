@@ -51,10 +51,10 @@
 
 						$categoria = "SELECT nombre FROM categoria WHERE id_categoria = ".$row["id_categoria"]."";
 						foreach($con->query($categoria) as $row3) {
-							$nombre_categoria = utf8_encode($row3["nombre"]);
+							$nombre_categoria = $row3["nombre"];
 						}
 
-						echo "<h4><p class='text-left'><span class='fas fa-boxes'></span> ".$nombre_categoria."";
+						echo "<h4><p class='text-left'><span class='fas fa-boxes'></span> ".utf8_decode($nombre_categoria)."";
 
 						echo "<h4><p class='text-left'><span class='fas fa-thumbs-up'></span> Intereses:</p></h4>";
 
@@ -94,10 +94,10 @@
 
 						$categoria = "SELECT nombre FROM categoria WHERE id_categoria = ".$row["id_categoria"]."";
 						foreach($con->query($categoria) as $row3) {
-							$nombre_categoria = utf8_decode($row3["nombre"]);
+							$nombre_categoria = $row3["nombre"];
 						}
 
-						echo "<h4><p class='text-left'><span class='fas fa-boxes'></span> ".$nombre_categoria."";
+						echo "<h4><p class='text-left'><span class='fas fa-boxes'></span> ".utf8_decode($nombre_categoria)."";
 
 						echo "<h4><p class='text-left'><span class='fas fa-thumbs-up'></span> Intereses:</p></h4>";
 
